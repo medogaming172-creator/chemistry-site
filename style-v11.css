@@ -560,7 +560,7 @@ nav ul li a:hover { color: #00bfff; }
     color: #fff;
     line-height: 1.2;
   }
-  .right-image { display: none; }
+  .right-image { display: block; position: absolute; right: 10px; top: 50%; transform: translateY(-50%); width: 40%; max-width: 250px; }
   .right-icons { display: none; }
   .courses { padding: 16px 12px; }
   .courses-heading { margin: 0 auto 10px; }
