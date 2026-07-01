@@ -436,7 +436,7 @@ nav ul li a:hover { color: #00bfff; }
 
 .courses { padding: 100px 60px; text-align: center; border-top: 1px solid rgba(255,255,255,0.03); border-bottom: 1px solid rgba(255,255,255,0.03); position: relative; z-index: 2; overflow: hidden; }
 .courses-heading { max-width: 600px; margin: 0 auto 60px; position: relative; z-index: 2; }
-.courses-heading h5 { color: #00bfff; font-weight: 600; font-size: 12px; letter-spacing: 3px; margin-bottom: 10px; }
+  .courses-heading h5 { color: #00bfff; font-weight: 600; font-size: 10px; letter-spacing: 2px; margin-bottom: 6px; }
 .courses-heading h2 { font-size: 36px; font-weight: 700; margin-bottom: 14px; }
 .courses-heading p { color: #999; font-size: 14px; }
 .courses-container { display: flex; gap: 28px; justify-content: center; max-width: 1000px; margin: 0 auto; flex-wrap: wrap; position: relative; z-index: 2; }
@@ -555,12 +555,12 @@ nav ul li a:hover { color: #00bfff; }
   .practical-heading p { font-size: 11px; }
   .practical-image { margin-bottom: 10px; }
   .practical-image img { max-width: 100px; }
-  .practical-grid { grid-template-columns: 1fr; gap: 6px; }
-  .practical-card { padding: 8px; }
-  .practical-card h3 { font-size: 11px; margin-bottom: 4px; }
-  .practical-card p { font-size: 10px; line-height: 1.4; }
-  .practical-icon { width: 34px; height: 34px; margin: 0 auto 6px; }
-  .practical-icon i { font-size: 14px; }
+  .practical-grid { grid-template-columns: repeat(3, 1fr); gap: 4px; }
+  .practical-card { padding: 6px 4px; }
+  .practical-card h3 { font-size: 9px; margin-bottom: 2px; }
+  .practical-card p { font-size: 8px; line-height: 1.3; }
+  .practical-icon { width: 24px; height: 24px; margin: 0 auto 4px; }
+  .practical-icon i { font-size: 11px; }
 }
 
 @media (max-width: 576px) {
