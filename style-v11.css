@@ -267,15 +267,16 @@ nav ul li a:hover { color: #00bfff; }
 .social-icon.whatsapp:hover { background: #25d366; color: #fff; }
 
 .hero-image {
-  flex: 0 0 auto;
+  flex: 0 0 340px;
   position: relative;
-  margin-right: -60px;
+  margin-right: 0;
+  order: 1;
   -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0));
   mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0));
 }
 
 .hero-image img {
-  max-width: 480px;
+  max-width: 340px;
   width: 100%;
   filter: drop-shadow(0 15px 40px rgba(0,0,0,0.3));
   animation: floatMain 4s ease-in-out infinite;
@@ -286,14 +287,9 @@ nav ul li a:hover { color: #00bfff; }
 }
 
 .right-image {
-  position: absolute;
-  right: 180px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 60%;
-  max-width: 850px;
-  z-index: 1;
-  pointer-events: none;
+  flex: 0 0 180px;
+  position: relative;
+  order: -2;
 }
 
 .right-image img {
@@ -379,17 +375,7 @@ nav ul li a:hover { color: #00bfff; }
   75% { transform: translateY(10px) rotate(-2deg); opacity: 0.28; }
 }
 
-.right-icons {
-  position: absolute;
-  right: 30px;
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-  z-index: 3;
-  pointer-events: none;
-}
+.right-icons { display: none; }
 
 .right-icon-item {
   display: flex;
