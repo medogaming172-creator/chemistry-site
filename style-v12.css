@@ -286,96 +286,12 @@ nav ul li a:hover { color: #00bfff; }
   display: none;
 }
 
-.right-image {
-  position: absolute;
-  top: 20px;
-  right: -60px;
-  width: 180px;
-  z-index: 5;
-}
-
-.right-image img {
-  width: 100%;
-  filter: drop-shadow(0 15px 40px rgba(0,0,0,0.25));
-  animation: floatMain 4s ease-in-out infinite;
-}
-
 @keyframes floatMain {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-15px); }
 }
 
-.bubble-wrap {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  overflow: hidden;
-}
 
-.r-bubble {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, rgba(0,191,255,0.35), rgba(0,191,255,0.06));
-  border: 1px solid rgba(0,191,255,0.15);
-  animation: bubbleFloat 5s ease-in-out infinite;
-  box-shadow: 0 0 20px rgba(0,191,255,0.12), inset 0 -3px 6px rgba(0,191,255,0.08);
-}
-
-.r-bubble::after {
-  content: '';
-  position: absolute;
-  top: 5px;
-  left: 6px;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.35);
-}
-
-@keyframes bubbleFloat {
-  0%, 100% {
-    transform: translateY(0) scale(1);
-    opacity: 0.5;
-  }
-  25% {
-    transform: translateY(-20px) scale(1.12);
-    opacity: 0.8;
-  }
-  50% {
-    transform: translateY(0) scale(1);
-    opacity: 0.5;
-  }
-  75% {
-    transform: translateY(12px) scale(0.95);
-    opacity: 0.65;
-  }
-}
-
-.chem-wrap {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  overflow: hidden;
-}
-
-.c-symbol {
-  position: absolute;
-  font-size: 20px;
-  font-weight: 700;
-  color: rgba(0,191,255,0.2);
-  animation: chemFloat 7s ease-in-out infinite;
-  user-select: none;
-  white-space: nowrap;
-}
-
-@keyframes chemFloat {
-  0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.2; }
-  25% { transform: translateY(-14px) rotate(2deg); opacity: 0.35; }
-  50% { transform: translateY(0) rotate(0deg); opacity: 0.2; }
-  75% { transform: translateY(10px) rotate(-2deg); opacity: 0.28; }
-}
 
 
 
@@ -518,7 +434,7 @@ nav ul li a:hover { color: #00bfff; }
     color: #fff;
     line-height: 1.2;
   }
-  .right-image { display: none !important; }
+
   .courses { padding: 16px 12px; }
   .courses-heading { margin: 0 auto 10px; }
   .courses-heading h2 { font-size: 18px; margin-bottom: 6px; }
