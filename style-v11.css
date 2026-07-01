@@ -267,7 +267,7 @@ nav ul li a:hover { color: #00bfff; }
 .social-icon.whatsapp:hover { background: #25d366; color: #fff; }
 
 .hero-image {
-  flex: 0 0 640px;
+  flex: 0 0 580px;
   position: relative;
   margin-right: 0;
   order: 1;
@@ -276,7 +276,7 @@ nav ul li a:hover { color: #00bfff; }
 }
 
 .hero-image img {
-  max-width: 640px;
+  max-width: 580px;
   width: 100%;
   filter: drop-shadow(0 15px 40px rgba(0,0,0,0.3));
   animation: floatMain 4s ease-in-out infinite;
