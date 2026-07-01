@@ -285,13 +285,15 @@ nav ul li a:hover { color: #00bfff; }
   display: none;
 }
 
+.hero-image { display: none; }
+
 .right-image {
   position: absolute;
   right: 20px;
   top: 50%;
   transform: translateY(-50%);
-  width: 60%;
-  max-width: 900px;
+  width: 65%;
+  max-width: 950px;
   z-index: 1;
   pointer-events: none;
 }
@@ -560,9 +562,9 @@ nav ul li a:hover { color: #00bfff; }
     color: #fff;
     line-height: 1.2;
   }
-  .right-image { display: block; position: absolute; right: 10px; top: 50%; transform: translateY(-50%); width: 55%; max-width: 350px; }
-  .right-image img { max-width: 100%; }
+  .right-image { display: none; }
   .right-icons { display: none; }
+  .hero-image { display: flex; align-items: center; gap: 4px; -webkit-mask-image: none; mask-image: none; }
   .courses { padding: 16px 12px; }
   .courses-heading { margin: 0 auto 10px; }
   .courses-heading h2 { font-size: 18px; margin-bottom: 6px; }
