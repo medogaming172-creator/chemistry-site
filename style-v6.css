@@ -480,10 +480,9 @@ nav ul li a:hover { color: #00bfff; }
   .contact-phone { display: none; }
   .buttons { gap: 6px; }
   .btn1, .btn2 { padding: 6px 16px; font-size: 12px; }
-  .hero { flex-direction: column; text-align: center; padding: 65px 10px 4px; gap: 4px; }
+  .hero { flex-direction: column; text-align: center; padding: 70px 10px 10px; gap: 4px; min-height: 0; }
   .hero-content { order: 0; gap: 4px; }
   .badge { margin: 0 auto; font-size: 10px; padding: 4px 12px; letter-spacing: 1px; }
-  .hero-top h2 { font-size: 18px; margin-top: 0; }
   .hero-sub { font-size: 11px !important; letter-spacing: 1px; }
   .hero-top p { font-size: 13px; }
   .hero-section p { font-size: 11px; }
@@ -508,11 +507,11 @@ nav ul li a:hover { color: #00bfff; }
     -webkit-mask-image: none;
     mask-image: none;
   }
-  .hero-image img { max-width: 120px; }
+  .hero-image img { max-width: 150px; }
   .hero-image-name {
     display: block;
     text-align: left;
-    font-size: 20px;
+    font-size: 24px;
     font-weight: 800;
     color: #fff;
     line-height: 1.2;
@@ -555,8 +554,8 @@ nav ul li a:hover { color: #00bfff; }
   .hero-top h2 { font-size: 15px; }
   .hero-sub { font-size: 11px !important; }
   .hero-top p { font-size: 11px; }
-  .hero-image img { max-width: 100px; }
-  .hero-image-name { font-size: 18px; }
+  .hero-image img { max-width: 130px; }
+  .hero-image-name { font-size: 22px; }
   .badge { font-size: 8px; padding: 3px 8px; }
   .features { gap: 2px; }
   .feature { font-size: 9px; padding: 2px 6px; }
