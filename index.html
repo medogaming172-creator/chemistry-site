@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IGCSE Chemistry | De Heba Elgindy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+<body>
+
+<div class="chem-decor"></div>
+
+<div class="loader">
+  <div class="circle"></div>
+  <h2>Loading...</h2>
+</div>
+
+<header>
+  <nav>
+    <div class="logo">
+      <i class="fa-solid fa-flask"></i>
+      <h2>IGCSE Chemistry</h2>
+    </div>
+    <ul></ul>
+    <div class="buttons">
+      <a href="#" class="btn1" onclick="openModal('register')">Register</a>
+      <a href="#" class="btn2" onclick="openModal('login')">Login</a>
+    </div>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="overlay"></div>
+  <div class="hero-content">
+    <div class="hero-top">
+      <div class="badge">CHOOSE ME</div>
+      <h2>Dr Heba Elgindy</h2>
+      <p class="hero-sub">IGCSE CHEMISTRY TEACHER</p>
+      <p>In-depth subject knowledge and proven teaching strategies tailored for AL & OL students.</p>
+      <p class="hero-quote">"A star is got easily with the right guidance, consistent practice, and smart techniques."</p>
+    </div>
+    <div class="hero-section">
+      <div class="badge">ABOUT THE TEACHER</div>
+      <h3>Expert IGCSE Chemistry Teacher</h3>
+      <p>Helping students achieve top grades with exam-focused preparation and proven strategies.</p>
+      <div class="stats">
+        <div class="stat">
+          <span class="stat-num">10+</span>
+          <span class="stat-label">Years Experience</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">1000+</span>
+          <span class="stat-label">Students</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">95%</span>
+          <span class="stat-label">A & A* Results</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-section cta-section">
+      <h3>READY FOR NOVEMBER SESSION!</h3>
+      <p>Let's achieve excellence together!</p>
+    </div>
+    <div class="features">
+      <div class="feature">
+        <i class="fa-solid fa-book"></i>
+        <span>Notes</span>
+      </div>
+      <div class="feature">
+        <i class="fa-solid fa-file"></i>
+        <span>Past Papers</span>
+      </div>
+      <div class="feature">
+        <i class="fa-solid fa-layer-group"></i>
+        <span>Classified</span>
+      </div>
+      <div class="feature">
+        <i class="fa-solid fa-graduation-cap"></i>
+        <span>Expert Teacher</span>
+      </div>
+    </div>
+    <div class="hero-social">
+      <a href="https://www.facebook.com/share/1ByV6Jt8SY/" target="_blank" class="social-icon facebook">
+        <svg viewBox="0 0 320 512" fill="currentColor" width="26" height="26">
+          <path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/>
+        </svg>
+      </a>
+      <a href="https://wa.me/201068856354" target="_blank" class="social-icon whatsapp">
+        <svg viewBox="0 0 448 512" fill="currentColor" width="26" height="26">
+          <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.2-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+  <div class="hero-image">
+    <img src="Adobe Express - file.png" alt="Teacher">
+  </div>
+  <div class="right-image">
+    <img src="Adobe Express - file (1).png" alt="Teacher">
+    <div class="bubble-wrap">
+      <span class="r-bubble" style="top:10%;left:5%;animation-delay:0s;"></span>
+      <span class="r-bubble" style="top:30%;right:8%;animation-delay:0.8s;"></span>
+      <span class="r-bubble" style="top:55%;left:2%;animation-delay:1.6s;"></span>
+      <span class="r-bubble" style="top:75%;right:5%;animation-delay:0.4s;"></span>
+      <span class="r-bubble" style="top:20%;left:55%;animation-delay:2.2s;"></span>
+      <span class="r-bubble" style="top:65%;left:40%;animation-delay:1.2s;"></span>
+      <span class="r-bubble" style="top:85%;left:60%;animation-delay:0.6s;"></span>
+      <span class="r-bubble" style="top:45%;right:50%;animation-delay:1.8s;"></span>
+      <span class="r-bubble" style="top:15%;left:25%;animation-delay:2.6s;"></span>
+      <span class="r-bubble" style="top:90%;right:30%;animation-delay:0.2s;"></span>
+    </div>
+    <div class="chem-wrap">
+      <span class="c-symbol" style="top:8%;left:10%;animation-delay:0.3s;">H₂SO₄</span>
+      <span class="c-symbol" style="top:25%;right:12%;animation-delay:1.5s;">CH₄</span>
+      <span class="c-symbol" style="top:50%;left:5%;animation-delay:2.5s;">CO₂</span>
+      <span class="c-symbol" style="top:70%;right:6%;animation-delay:0.8s;">H₂O</span>
+      <span class="c-symbol" style="top:85%;left:15%;animation-delay:1.8s;">NaOH</span>
+      <span class="c-symbol" style="top:15%;left:50%;animation-delay:3s;">H⁺</span>
+      <span class="c-symbol" style="top:40%;right:35%;animation-delay:0.5s;">OH⁻</span>
+      <span class="c-symbol" style="top:60%;left:45%;animation-delay:2s;">(aq)</span>
+      <span class="c-symbol" style="top:80%;right:25%;animation-delay:1s;">⇌</span>
+      <span class="c-symbol" style="top:5%;right:40%;animation-delay:2.2s;">pH</span>
+    </div>
+  </div>
+</section>
+
+<section class="courses">
+  <div class="courses-heading">
+    <h5>OUR COURSES</h5>
+    <h2>IGCSE Chemistry Courses</h2>
+    <p>O Level & A Level — flexible payment with full materials.</p>
+  </div>
+  <div class="courses-container">
+    <div class="course-card">
+      <div class="course-header">
+        <h3>O Level Chemistry</h3>
+        <div class="course-level">
+          <i class="fa-solid fa-layer-group"></i>
+          <span>Cambridge 0620 / Edexcel 4CH1</span>
+        </div>
+      </div>
+      <div class="course-body">
+        <ul>
+          <li><i class="fa-solid fa-check"></i> Notes, Classified & Past Papers</li>
+          <li><i class="fa-solid fa-check"></i> Weekly Quizzes & Mock Exams</li>
+          <li><i class="fa-solid fa-check"></i> Paper 6 Practical Training</li>
+        </ul>
+      </div>
+      <div class="course-payment">
+        <p class="payment-label">Payment</p>
+        <div class="payment-options">
+          <div class="payment-option">
+            <span class="payment-type">Upfront</span>
+            <span class="payment-note">15% discount</span>
+          </div>
+          <div class="payment-option">
+            <span class="payment-type">Per Session</span>
+            <span class="payment-note">No commitment</span>
+          </div>
+        </div>
+      </div>
+      <a href="#" class="course-btn">Enroll Now</a>
+    </div>
+    <div class="course-card">
+      <div class="course-header">
+        <h3>A Level Chemistry</h3>
+        <div class="course-level">
+          <i class="fa-solid fa-layer-group"></i>
+          <span>Cambridge 9701 / Edexcel 9CH0</span>
+        </div>
+      </div>
+      <div class="course-body">
+        <ul>
+          <li><i class="fa-solid fa-check"></i> Notes, Classified & Past Papers</li>
+          <li><i class="fa-solid fa-check"></i> Weekly Quizzes & Mock Exams</li>
+          <li><i class="fa-solid fa-check"></i> Paper 3 & 5 Practical Training</li>
+        </ul>
+      </div>
+      <div class="course-payment">
+        <p class="payment-label">Payment</p>
+        <div class="payment-options">
+          <div class="payment-option">
+            <span class="payment-type">Upfront</span>
+            <span class="payment-note">15% discount</span>
+          </div>
+          <div class="payment-option">
+            <span class="payment-type">Per Session</span>
+            <span class="payment-note">No commitment</span>
+          </div>
+        </div>
+      </div>
+      <a href="#" class="course-btn">Enroll Now</a>
+    </div>
+  </div>
+</section>
+
+<section class="practical">
+  <div class="practical-image">
+    <img src="Adobe Express - file.png" alt="Teacher">
+  </div>
+  <div class="practical-heading">
+    <h5>EXAM PREPARATION</h5>
+    <h2>Practical for Paper 6</h2>
+    <p>Master the Alternative to Practical paper with step-by-step methods & exam-style questions.</p>
+  </div>
+  <div class="practical-grid">
+    <div class="practical-card">
+      <div class="practical-icon"><i class="fa-solid fa-flask"></i></div>
+      <h3>Lab Techniques</h3>
+      <p>Heating, filtration, titration, gas collection — clear procedures.</p>
+    </div>
+    <div class="practical-card">
+      <div class="practical-icon"><i class="fa-solid fa-chart-line"></i></div>
+      <h3>Graphs & Tables</h3>
+      <p>Plot graphs, draw best-fit lines, calculate gradients.</p>
+    </div>
+    <div class="practical-card">
+      <div class="practical-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+      <h3>Observations & Tests</h3>
+      <p>Colour changes, gas tests, flame tests — identify substances.</p>
+    </div>
+    <div class="practical-card">
+      <div class="practical-icon"><i class="fa-solid fa-calculator"></i></div>
+      <h3>Calculations</h3>
+      <p>Moles, concentrations, yield, errors made simple.</p>
+    </div>
+    <div class="practical-card">
+      <div class="practical-icon"><i class="fa-solid fa-pen-ruler"></i></div>
+      <h3>Past Paper Practice</h3>
+      <p>Classified Paper 6 questions with model answers.</p>
+    </div>
+    <div class="practical-card">
+      <div class="practical-icon"><i class="fa-solid fa-lightbulb"></i></div>
+      <h3>Tips & Tricks</h3>
+      <p>Time management, command words, conclusion & evaluation.</p>
+    </div>
+  </div>
+</section>
+
+<div class="modal-overlay" id="modal-overlay" onclick="closeModal()"></div>
+
+<div class="modal" id="login-modal">
+  <span class="modal-close" onclick="closeModal()">&times;</span>
+  <div class="modal-header">
+    <div class="modal-icon"><i class="fa-solid fa-right-to-bracket"></i></div>
+    <h3>Welcome Back</h3>
+    <p>Sign in to your account</p>
+  </div>
+  <form id="login-form">
+    <div class="input-group">
+      <label><i class="fa-solid fa-envelope"></i> Email</label>
+      <input type="email" id="login-email" placeholder="your@email.com" required>
+      <span class="input-error" id="login-email-error"></span>
+    </div>
+    <div class="input-group">
+      <label><i class="fa-solid fa-lock"></i> Password</label>
+      <div class="password-wrap">
+        <input type="password" id="login-password" placeholder="Enter password" required>
+        <span class="toggle-pass" onclick="togglePass('login-password', this)"><i class="fa-regular fa-eye"></i></span>
+      </div>
+      <span class="input-error" id="login-pass-error"></span>
+    </div>
+    <div class="form-row">
+      <label class="checkbox-label"><input type="checkbox" id="remember-me" checked> <span>Remember me</span></label>
+      <a href="#" class="forgot-link" onclick="event.preventDefault(); closeModal(); openModal('forgot')">Forgot password?</a>
+    </div>
+    <button type="submit" class="modal-btn">Sign In</button>
+    <div class="divider"><span>Or continue with</span></div>
+    <button type="button" class="google-btn" id="google-signin-btn" onclick="googleSignIn()">
+      <svg viewBox="0 0 48 48" width="20" height="20"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.54 28.59A14.5 14.5 0 0 1 9.5 24c0-1.59.28-3.14.76-4.59l-7.98-6.19A23.99 23.99 0 0 0 0 24c0 3.77.87 7.35 2.56 10.56l7.98-5.97z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 5.97C6.51 42.62 14.62 48 24 48z"/></svg>
+      Sign in with Google
+    </button>
+    <p class="modal-switch">Don't have an account? <a href="#" onclick="event.preventDefault(); closeModal(); openModal('register')">Create one</a></p>
+  </form>
+</div>
+
+<div class="modal" id="register-modal">
+  <span class="modal-close" onclick="closeModal()">&times;</span>
+  <div class="modal-header">
+    <div class="modal-icon"><i class="fa-solid fa-user-plus"></i></div>
+    <h3>Create Account</h3>
+    <p>Join Dr Heba's chemistry class</p>
+  </div>
+  <form id="register-form">
+    <div class="input-group">
+      <label><i class="fa-solid fa-user"></i> Full Name</label>
+      <input type="text" id="register-name" placeholder="Your full name" required>
+      <span class="input-error" id="reg-name-error"></span>
+    </div>
+    <div class="input-group">
+      <label><i class="fa-solid fa-envelope"></i> Email</label>
+      <input type="email" id="register-email" placeholder="your@email.com" required>
+      <span class="input-error" id="reg-email-error"></span>
+    </div>
+    <div class="input-group">
+      <label><i class="fa-solid fa-lock"></i> Password</label>
+      <div class="password-wrap">
+        <input type="password" id="register-password" placeholder="Create a password" required>
+        <span class="toggle-pass" onclick="togglePass('register-password', this)"><i class="fa-regular fa-eye"></i></span>
+      </div>
+      <div class="password-strength" id="password-strength">
+        <div class="strength-bar" id="strength-bar"></div>
+      </div>
+      <span class="input-error" id="reg-pass-error"></span>
+    </div>
+    <div class="input-group">
+      <label><i class="fa-solid fa-lock"></i> Confirm Password</label>
+      <div class="password-wrap">
+        <input type="password" id="register-confirm" placeholder="Confirm password" required>
+        <span class="toggle-pass" onclick="togglePass('register-confirm', this)"><i class="fa-regular fa-eye"></i></span>
+      </div>
+      <span class="input-error" id="reg-confirm-error"></span>
+    </div>
+    <label class="checkbox-label"><input type="checkbox" id="terms-check" checked> <span>I agree to the <a href="#">Terms & Privacy Policy</a></span></label>
+    <button type="submit" class="modal-btn">Create Account</button>
+    <div class="divider"><span>Or register with</span></div>
+    <button type="button" class="google-btn" onclick="googleSignIn()">
+      <svg viewBox="0 0 48 48" width="20" height="20"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.54 28.59A14.5 14.5 0 0 1 9.5 24c0-1.59.28-3.14.76-4.59l-7.98-6.19A23.99 23.99 0 0 0 0 24c0 3.77.87 7.35 2.56 10.56l7.98-5.97z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 5.97C6.51 42.62 14.62 48 24 48z"/></svg>
+      Sign up with Google
+    </button>
+    <p class="modal-switch">Already have an account? <a href="#" onclick="event.preventDefault(); closeModal(); openModal('login')">Sign in</a></p>
+  </form>
+</div>
+
+<div class="modal" id="forgot-modal">
+  <span class="modal-close" onclick="closeModal()">&times;</span>
+  <div class="modal-header">
+    <div class="modal-icon"><i class="fa-solid fa-key"></i></div>
+    <h3>Reset Password</h3>
+    <p>A reset link will be sent to your email</p>
+  </div>
+  <form id="forgot-form">
+    <div class="input-group">
+      <label><i class="fa-solid fa-envelope"></i> Email</label>
+      <input type="email" id="forgot-email" placeholder="your@email.com" required>
+      <span class="input-error" id="forgot-email-error"></span>
+    </div>
+    <button type="submit" class="modal-btn" id="forgot-btn">Send Reset Link</button>
+    <p class="modal-switch"><a href="#" onclick="event.preventDefault(); closeModal(); openModal('login')">Back to sign in</a></p>
+  </form>
+</div>
+
+<div class="modal" id="settings-modal">
+  <span class="modal-close" onclick="closeModal()">&times;</span>
+  <div class="modal-header">
+    <div class="modal-icon"><i class="fa-solid fa-gear"></i></div>
+    <h3>Settings</h3>
+    <p>Configure your account</p>
+  </div>
+  <form id="settings-form">
+    <div class="input-group">
+      <label><i class="fa-solid fa-envelope"></i> EmailJS Public Key</label>
+      <input type="text" id="settings-public-key" placeholder="Your EmailJS public key">
+    </div>
+    <div class="input-group">
+      <label><i class="fa-solid fa-server"></i> EmailJS Service ID</label>
+      <input type="text" id="settings-service-id" placeholder="Your EmailJS service ID">
+    </div>
+    <div class="input-group">
+      <label><i class="fa-regular fa-file-lines"></i> EmailJS Template ID</label>
+      <input type="text" id="settings-template-id" placeholder="Your EmailJS template ID">
+    </div>
+    <div class="input-group">
+      <label><i class="fa-brands fa-google"></i> Google Client ID</label>
+      <input type="text" id="settings-google-id" placeholder="Your Google OAuth Client ID">
+    </div>
+    <button type="submit" class="modal-btn">Save Settings</button>
+    <p class="modal-switch">Get EmailJS keys at <a href="https://www.emailjs.com/" target="_blank">EmailJS.com</a> &middot; Get Google Client ID at <a href="https://console.cloud.google.com/" target="_blank">Google Cloud Console</a></p>
+  </form>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<div class="modal" id="alert-modal">
+  <span class="modal-close" onclick="closeModal()">&times;</span>
+  <div class="modal-header">
+    <div class="modal-icon"><i class="fa-solid fa-circle-info"></i></div>
+    <h3 id="alert-title">Alert</h3>
+  </div>
+  <div id="alert-body" style="text-align:center;font-size:14px;color:#bbb;line-height:1.8;margin-bottom:8px;"></div>
+  <button class="modal-btn" onclick="closeModal()" style="margin-top:16px;">OK</button>
+</div>
+
+<script>
+  window.addEventListener('load', () => {
+    try { initEmailJS(); } catch(e) {}
+    document.querySelector('.loader').classList.add('hidden');
+    try { checkAuth(); } catch(e) {}
+    try { generateChemDecor(); } catch(e) {}
+  });
+
+  function initEmailJS() {
+    const key = localStorage.getItem('emailjs_public_key');
+    if (key && typeof emailjs !== 'undefined') emailjs.init(key);
+  }
+
+  const USERS_KEY = 'chem_users';
+  const EMAILJS_KEY = 'emailjs_config';
+
+  function getUsers() {
+    return JSON.parse(localStorage.getItem(USERS_KEY) || '[]');
+  }
+
+  function saveUsers(users) {
+    localStorage.setItem(USERS_KEY, JSON.stringify(users));
+  }
+
+  function togglePass(id, el) {
+    const inp = document.getElementById(id);
+    inp.type = inp.type === 'password' ? 'text' : 'password';
+    el.innerHTML = `<i class="fa-regular fa-eye${inp.type === 'text' ? '-slash' : ''}"></i>`;
+  }
+
+  document.getElementById('register-password').addEventListener('input', function() {
+    const val = this.value;
+    const bar = document.getElementById('strength-bar');
+    let score = 0;
+    if (val.length >= 6) score++;
+    if (val.length >= 10) score++;
+    if (/[A-Z]/.test(val)) score++;
+    if (/[0-9]/.test(val)) score++;
+    if (/[^A-Za-z0-9]/.test(val)) score++;
+    const levels = ['', 'Weak', 'Fair', 'Good', 'Strong', 'Very Strong'];
+    const colors = ['', '#ff4444', '#ff8800', '#ffcc00', '#88cc00', '#00bfff'];
+    bar.style.width = (score * 20) + '%';
+    bar.style.background = colors[score];
+    bar.textContent = score ? levels[score] : '';
+  });
+
+  document.getElementById('register-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name = document.getElementById('register-name').value.trim();
+    const email = document.getElementById('register-email').value.trim().toLowerCase();
+    const pass = document.getElementById('register-password').value;
+    const confirm = document.getElementById('register-confirm').value;
+    const terms = document.getElementById('terms-check').checked;
+    let valid = true;
+
+    document.querySelectorAll('#register-form .input-error').forEach(el => el.textContent = '');
+
+    if (name.length < 2) {
+      document.getElementById('reg-name-error').textContent = 'Name must be at least 2 characters';
+      valid = false;
+    }
+    if (!email.includes('@') || !email.includes('.')) {
+      document.getElementById('reg-email-error').textContent = 'Enter a valid email';
+      valid = false;
+    }
+    if (pass.length < 6) {
+      document.getElementById('reg-pass-error').textContent = 'Password must be at least 6 characters';
+      valid = false;
+    }
+    if (pass !== confirm) {
+      document.getElementById('reg-confirm-error').textContent = 'Passwords do not match';
+      valid = false;
+    }
+    if (!terms) {
+      showToast('Please accept the Terms & Privacy Policy', 'error');
+      valid = false;
+    }
+
+    const users = getUsers();
+    if (users.find(u => u.email === email)) {
+      document.getElementById('reg-email-error').textContent = 'Email already registered';
+      valid = false;
+    }
+
+    if (!valid) return;
+
+    const user = { id: Date.now().toString(), name, email, password: btoa(pass), createdAt: new Date().toISOString() };
+    users.push(user);
+    saveUsers(users);
+    localStorage.setItem('chem_session', JSON.stringify({ id: user.id, name: user.name, email: user.email }));
+    closeModal();
+    checkAuth();
+    showToast('Account created successfully!', 'success');
+  });
+
+  document.getElementById('login-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const email = document.getElementById('login-email').value.trim().toLowerCase();
+    const pass = document.getElementById('login-password').value;
+    const remember = document.getElementById('remember-me').checked;
+
+    document.querySelectorAll('#login-form .input-error').forEach(el => el.textContent = '');
+
+    const users = getUsers();
+    const user = users.find(u => u.email === email && atob(u.password) === pass);
+
+    if (!user) {
+      document.getElementById('login-pass-error').textContent = 'Invalid email or password';
+      return;
+    }
+
+    if (remember) {
+      localStorage.setItem('chem_session', JSON.stringify({ id: user.id, name: user.name, email: user.email }));
+    } else {
+      sessionStorage.setItem('chem_session', JSON.stringify({ id: user.id, name: user.name, email: user.email }));
+    }
+    closeModal();
+    checkAuth();
+    showToast('Welcome back, ' + user.name + '!', 'success');
+  });
+
+  document.getElementById('forgot-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = document.getElementById('forgot-btn');
+    const email = document.getElementById('forgot-email').value.trim().toLowerCase();
+    const emailError = document.getElementById('forgot-email-error');
+
+    emailError.textContent = '';
+
+    if (!email.includes('@') || !email.includes('.')) {
+      emailError.textContent = 'Enter a valid email';
+      return;
+    }
+
+    const users = getUsers();
+    const user = users.find(u => u.email === email);
+
+    const config = JSON.parse(localStorage.getItem(EMAILJS_KEY) || '{}');
+    const hasRealEmail = config.serviceId && config.templateId && config.publicKey;
+
+    if (!user) {
+      showToast('If this email is registered, instructions have been sent.', 'success');
+      closeModal();
+      return;
+    }
+
+    if (hasRealEmail) {
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+
+      try {
+        const decodedPass = atob(user.password);
+        await emailjs.send(config.serviceId, config.templateId, {
+          to_email: email,
+          to_name: user.name,
+          reset_link: window.location.origin + '/reset-password?email=' + encodeURIComponent(email),
+          site_name: 'IGCSE Chemistry | Dr Heba Elgindy',
+          password: decodedPass
+        });
+        showToast('Reset link sent to ' + email, 'success');
+      } catch (err) {
+        showToast('Failed to send email. Check your EmailJS settings.', 'error');
+      }
+      btn.disabled = false;
+      btn.textContent = 'Send Reset Link';
+    } else {
+      const decodedPass = atob(user.password);
+      showModalAlert(
+        'Password Recovery',
+        'Your password is: <strong>' + decodedPass + '</strong><br><br>' +
+        'For real email delivery, go to <strong>Settings</strong> in your profile menu and configure EmailJS.<br><br>' +
+        '<a href="https://www.emailjs.com/" target="_blank" style="color:#00bfff;">Create free account →</a>'
+      );
+      return;
+    }
+    closeModal();
+  });
+
+  document.getElementById('settings-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const publicKey = document.getElementById('settings-public-key').value.trim();
+    const serviceId = document.getElementById('settings-service-id').value.trim();
+    const templateId = document.getElementById('settings-template-id').value.trim();
+    const googleId = document.getElementById('settings-google-id').value.trim();
+
+    if (!publicKey || !serviceId || !templateId || !googleId) {
+      showToast('Please fill all fields', 'error');
+      return;
+    }
+
+    localStorage.setItem('emailjs_public_key', publicKey);
+    localStorage.setItem(EMAILJS_KEY, JSON.stringify({ publicKey, serviceId, templateId }));
+    localStorage.setItem('google_client_id', googleId);
+    emailjs.init(publicKey);
+    closeModal();
+    showToast('Settings saved! You can now sign in with Google.', 'success');
+  });
+
+  function getSession() {
+    return JSON.parse(localStorage.getItem('chem_session') || sessionStorage.getItem('chem_session') || 'null');
+  }
+
+  function checkAuth() {
+    const session = getSession();
+    document.querySelector('.buttons').innerHTML = session ? buildUserMenu(session) : buildAuthButtons();
+  }
+
+  function buildAuthButtons() {
+    return `<a href="#" class="btn1" onclick="event.preventDefault(); openModal('register')">Register</a><a href="#" class="btn2" onclick="event.preventDefault(); openModal('login')">Sign In</a>`;
+  }
+
+  function buildUserMenu(session) {
+    return `<div class="user-menu">
+      <button class="user-trigger" onclick="toggleMenu(event)">
+        <div class="user-avatar">${session.name.charAt(0).toUpperCase()}</div>
+        <span class="user-name">${session.name.split(' ')[0]}</span>
+        <i class="fa-solid fa-chevron-down"></i>
+      </button>
+      <div class="user-dropdown" id="user-dropdown">
+        <div class="dropdown-header">
+          <div class="user-avatar lg">${session.name.charAt(0).toUpperCase()}</div>
+          <div><strong>${session.name}</strong><small>${session.email}</small></div>
+        </div>
+        <div class="dropdown-divider"></div>
+        <a href="#" onclick="event.preventDefault(); openModal('profile')"><i class="fa-solid fa-user"></i> My Profile</a>
+        <a href="#" onclick="event.preventDefault(); openSettingsModal()"><i class="fa-solid fa-gear"></i> Settings</a>
+        <div class="dropdown-divider"></div>
+        <a href="#" class="danger" onclick="event.preventDefault(); logout()"><i class="fa-solid fa-right-from-bracket"></i> Sign Out</a>
+      </div>
+    </div>`;
+  }
+
+  function toggleMenu(e) {
+    e.stopPropagation();
+    document.getElementById('user-dropdown').classList.toggle('active');
+  }
+
+  document.addEventListener('click', () => {
+    const dd = document.getElementById('user-dropdown');
+    if (dd) dd.classList.remove('active');
+  });
+
+  function logout() {
+    localStorage.removeItem('chem_session');
+    sessionStorage.removeItem('chem_session');
+    checkAuth();
+    showToast('Signed out successfully', 'info');
+  }
+
+  function showToast(msg, type) {
+    const t = document.getElementById('toast');
+    t.innerHTML = msg;
+    t.className = 'toast show ' + type;
+    clearTimeout(t._timeout);
+    t._timeout = setTimeout(() => t.classList.remove('show'), 4000);
+  }
+
+  function showModalAlert(title, body) {
+    closeModal();
+    setTimeout(() => {
+      document.getElementById('alert-title').textContent = title;
+      document.getElementById('alert-body').innerHTML = body;
+      openModal('alert');
+    }, 200);
+  }
+
+  function generateChemDecor() {
+    const formulas = ['H₂O', 'CO₂', 'CH₄', 'H₂SO₄', 'NaCl', 'C₆H₁₂O₆', 'NH₃', 'O₂', 'N₂', 'HCl', 'NaOH', 'C₂H₅OH'];
+    const colors = ['rgba(0,191,255,', 'rgba(100,200,255,', 'rgba(0,150,200,', 'rgba(150,100,255,'];
+    const sizes = ['sm', 'md', 'lg'];
+    for (let i = 0; i < 30; i++) {
+      const el = document.createElement('div');
+      const isFormula = Math.random() > 0.4;
+      const size = sizes[Math.floor(Math.random() * sizes.length)];
+      const color = colors[Math.floor(Math.random() * colors.length)];
+      const opacity = (0.08 + Math.random() * 0.12).toFixed(2);
+      if (isFormula) {
+        el.className = 'chem-float chem-formula';
+        el.textContent = formulas[Math.floor(Math.random() * formulas.length)];
+        el.style.color = color + opacity + ')';
+      } else {
+        el.className = 'chem-float chem-bubble ' + size;
+        el.style.background = 'radial-gradient(circle at 30% 30%, ' + color + '0.15}, ' + color + '0.05})';
+        el.style.border = '1px solid ' + color + '0.1}';
+      }
+      el.style.left = Math.random() * 100 + '%';
+      el.style.top = Math.random() * 100 + '%';
+      el.style.animationDelay = (Math.random() * 8).toFixed(1) + 's';
+      el.style.animationDuration = (8 + Math.random() * 12).toFixed(1) + 's';
+      el.style.transform = 'rotate(' + (Math.random() * 360) + 'deg)';
+      document.querySelector('.chem-decor').appendChild(el);
+    }
+  }
+
+  function openModal(type) {
+    document.getElementById('modal-overlay').classList.add('active');
+    document.getElementById(type + '-modal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function openSettingsModal() {
+    const config = JSON.parse(localStorage.getItem(EMAILJS_KEY) || '{}');
+    document.getElementById('settings-public-key').value = localStorage.getItem('emailjs_public_key') || config.publicKey || '';
+    document.getElementById('settings-service-id').value = config.serviceId || '';
+    document.getElementById('settings-template-id').value = config.templateId || '';
+    document.getElementById('settings-google-id').value = localStorage.getItem('google_client_id') || '';
+    openModal('settings');
+  }
+
+  function googleSignIn() {
+    const clientId = localStorage.getItem('google_client_id');
+    if (!clientId) {
+      showModalAlert('Google Sign-In Not Configured',
+        'Go to <strong>Settings</strong> in your profile menu and add your Google Client ID.<br><br>' +
+        '<a href="https://console.cloud.google.com/apis/credentials" target="_blank" style="color:#00bfff;">Get Client ID from Google Cloud Console →</a>');
+      return;
+    }
+    if (typeof google === 'undefined' || !google.accounts) {
+      showToast('Loading Google Sign-In...', 'info');
+      const s = document.createElement('script');
+      s.src = 'https://accounts.google.com/gsi/client';
+      s.onload = () => showGoogleOneTap(clientId);
+      document.head.appendChild(s);
+      return;
+    }
+    showGoogleOneTap(clientId);
+  }
+
+  function showGoogleOneTap(clientId) {
+    const overlay = document.createElement('div');
+    overlay.id = 'gsi-overlay';
+    overlay.innerHTML = '<div id="gsi-container"></div>';
+    document.body.appendChild(overlay);
+    google.accounts.id.initialize({ client_id: clientId, callback: handleGoogleCredential });
+    google.accounts.id.renderButton(document.getElementById('gsi-container'), {
+      type: 'standard', theme: 'outline', size: 'large', width: 300
+    });
+    google.accounts.id.prompt();
+  }
+
+  function handleGoogleCredential(response) {
+    const payload = JSON.parse(atob(response.credential.split('.')[1]));
+    const user = { id: payload.sub, name: payload.name, email: payload.email, picture: payload.picture };
+    localStorage.setItem('chem_session', JSON.stringify(user));
+    document.getElementById('gsi-overlay')?.remove();
+    closeModal();
+    checkAuth();
+    showToast('Welcome, ' + user.name + '!', 'success');
+  }
+
+  document.addEventListener('click', function(e) {
+    if (e.target.closest('#gsi-overlay')) {
+      document.getElementById('gsi-overlay')?.remove();
+    }
+  });
+
+  function closeModal() {
+    document.getElementById('modal-overlay').classList.remove('active');
+    document.querySelectorAll('.modal').forEach(m => m.classList.remove('active'));
+    document.body.style.overflow = '';
+  }
+</script>
+
+</body>
+</html>
