@@ -126,6 +126,7 @@ nav ul li a:hover { color: #00bfff; }
   z-index: 2;
   font-family: 'Poppins', sans-serif;
   order: -1;
+  padding-left: 460px;
 }
 
 .hero-content * {
@@ -287,11 +288,11 @@ nav ul li a:hover { color: #00bfff; }
 
 .right-image {
   position: absolute;
-  right: 20px;
+  left: 20px;
   top: 50%;
   transform: translateY(-50%);
-  width: 65%;
-  max-width: 950px;
+  width: 30%;
+  max-width: 400px;
   z-index: 1;
   pointer-events: none;
 }
@@ -524,7 +525,7 @@ nav ul li a:hover { color: #00bfff; }
   .buttons { gap: 6px; }
   .btn1, .btn2 { padding: 6px 16px; font-size: 12px; }
   .hero { flex-direction: column; text-align: center; padding: 70px 10px 2px; gap: 4px; min-height: 0; }
-  .hero-content { order: 0; gap: 4px; }
+  .hero-content { order: 0; gap: 4px; padding-left: 0; }
   .badge { margin: 0 auto; font-size: 10px; padding: 4px 12px; letter-spacing: 1px; }
   .hero-sub { font-size: 11px !important; letter-spacing: 1px; }
   .hero-top h2 { display: none; }
