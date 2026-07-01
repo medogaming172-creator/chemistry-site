@@ -507,7 +507,7 @@ nav ul li a:hover { color: #00bfff; }
     -webkit-mask-image: none;
     mask-image: none;
   }
-  .hero-image img { max-width: 150px; }
+  .hero-image img { max-width: 130px; }
   .hero-image-name {
     display: block;
     text-align: left;
@@ -554,7 +554,7 @@ nav ul li a:hover { color: #00bfff; }
   .hero-top h2 { font-size: 15px; }
   .hero-sub { font-size: 11px !important; }
   .hero-top p { font-size: 11px; }
-  .hero-image img { max-width: 130px; }
+  .hero-image img { max-width: 110px; }
   .hero-image-name { font-size: 15px; }
   .badge { font-size: 8px; padding: 3px 8px; }
   .features { gap: 2px; }
