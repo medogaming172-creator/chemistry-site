@@ -503,7 +503,7 @@ nav ul li a:hover { color: #00bfff; }
   .hero-image {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 4px;
     -webkit-mask-image: none;
     mask-image: none;
   }
