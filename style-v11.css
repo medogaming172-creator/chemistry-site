@@ -266,7 +266,13 @@ nav ul li a:hover { color: #00bfff; }
 }
 .social-icon.whatsapp:hover { background: #25d366; color: #fff; }
 
-.hero-image { display: none; }
+.hero-image {
+  flex: 0 0 auto;
+  position: relative;
+  margin-right: -60px;
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0));
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0));
+}
 
 .hero-image img {
   max-width: 480px;
