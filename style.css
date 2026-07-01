@@ -531,11 +531,11 @@ nav ul li a:hover { color: #00bfff; }
     -webkit-mask-image: none;
     mask-image: none;
   }
-  .hero-image img { max-width: 110px; }
+  .hero-image img { max-width: 150px; }
   .hero-image-name {
     display: block;
     text-align: left;
-    font-size: 20px;
+    font-size: 24px;
     font-weight: 800;
     color: #fff;
     line-height: 1.2;
@@ -561,8 +561,8 @@ nav ul li a:hover { color: #00bfff; }
   .stats { flex-direction: column; gap: 8px; }
   .practical-grid { grid-template-columns: 1fr; }
   .hero-top h2 { font-size: 18px; }
-  .hero-image img { max-width: 90px; }
-  .hero-image-name { font-size: 18px; }
+  .hero-image img { max-width: 130px; }
+  .hero-image-name { font-size: 22px; }
 }
 
 .modal-overlay {
