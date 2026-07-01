@@ -125,7 +125,7 @@ nav ul li a:hover { color: #00bfff; }
   position: relative;
   z-index: 2;
   font-family: 'Poppins', sans-serif;
-  order: -1;
+  order: 0;
 }
 
 .hero-content * {
@@ -270,7 +270,7 @@ nav ul li a:hover { color: #00bfff; }
   flex: 0 0 520px;
   position: relative;
   margin-right: 0;
-  order: 1;
+  order: 2;
   -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0));
   mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0));
 }
@@ -289,7 +289,7 @@ nav ul li a:hover { color: #00bfff; }
 .right-image {
   flex: 0 0 180px;
   position: relative;
-  order: -2;
+  order: 1;
 }
 
 .right-image img {
