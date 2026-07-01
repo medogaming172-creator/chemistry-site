@@ -667,25 +667,4 @@ nav ul li a:hover { color: #00bfff; }
 .toast.error { border-color: rgba(255,68,68,0.3); }
 .toast.info { border-color: rgba(0,191,255,0.3); }
 
-.divider {
-  display: flex; align-items: center; gap: 12px; margin: 4px 0; color: #555; font-size: 12px;
-}
-.divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: rgba(255,255,255,0.06); }
 
-.google-btn {
-  display: flex; align-items: center; justify-content: center; gap: 10px;
-  width: 100%; padding: 12px; border-radius: 30px; border: 1px solid rgba(255,255,255,0.12);
-  background: transparent; color: #ddd; font-size: 14px; font-weight: 600; cursor: pointer;
-  font-family: 'Poppins', sans-serif; transition: all 0.3s;
-}
-.google-btn:hover { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.2); }
-
-#gsi-overlay {
-  position: fixed; inset: 0; z-index: 3000;
-  display: flex; align-items: center; justify-content: center;
-  background: rgba(0,0,0,0.6); backdrop-filter: blur(4px);
-}
-#gsi-container {
-  background: #fff; padding: 30px; border-radius: 16px;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-}

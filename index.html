@@ -271,11 +271,6 @@
       <a href="#" class="forgot-link" onclick="event.preventDefault(); closeModal(); openModal('forgot')">Forgot password?</a>
     </div>
     <button type="submit" class="modal-btn">Sign In</button>
-    <div class="divider"><span>Or continue with</span></div>
-    <button type="button" class="google-btn" id="google-signin-btn" onclick="googleSignIn()">
-      <svg viewBox="0 0 48 48" width="20" height="20"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.54 28.59A14.5 14.5 0 0 1 9.5 24c0-1.59.28-3.14.76-4.59l-7.98-6.19A23.99 23.99 0 0 0 0 24c0 3.77.87 7.35 2.56 10.56l7.98-5.97z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 5.97C6.51 42.62 14.62 48 24 48z"/></svg>
-      Sign in with Google
-    </button>
     <p class="modal-switch">Don't have an account? <a href="#" onclick="event.preventDefault(); closeModal(); openModal('register')">Create one</a></p>
   </form>
 </div>
@@ -319,11 +314,6 @@
     </div>
     <label class="checkbox-label"><input type="checkbox" id="terms-check" checked> <span>I agree to the <a href="#">Terms & Privacy Policy</a></span></label>
     <button type="submit" class="modal-btn">Create Account</button>
-    <div class="divider"><span>Or register with</span></div>
-    <button type="button" class="google-btn" onclick="googleSignIn()">
-      <svg viewBox="0 0 48 48" width="20" height="20"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.54 28.59A14.5 14.5 0 0 1 9.5 24c0-1.59.28-3.14.76-4.59l-7.98-6.19A23.99 23.99 0 0 0 0 24c0 3.77.87 7.35 2.56 10.56l7.98-5.97z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 5.97C6.51 42.62 14.62 48 24 48z"/></svg>
-      Sign up with Google
-    </button>
     <p class="modal-switch">Already have an account? <a href="#" onclick="event.preventDefault(); closeModal(); openModal('login')">Sign in</a></p>
   </form>
 </div>
@@ -366,12 +356,8 @@
       <label><i class="fa-regular fa-file-lines"></i> EmailJS Template ID</label>
       <input type="text" id="settings-template-id" placeholder="Your EmailJS template ID">
     </div>
-    <div class="input-group">
-      <label><i class="fa-brands fa-google"></i> Google Client ID</label>
-      <input type="text" id="settings-google-id" placeholder="Your Google OAuth Client ID">
-    </div>
     <button type="submit" class="modal-btn">Save Settings</button>
-    <p class="modal-switch">Get EmailJS keys at <a href="https://www.emailjs.com/" target="_blank">EmailJS.com</a> &middot; Get Google Client ID at <a href="https://console.cloud.google.com/" target="_blank">Google Cloud Console</a></p>
+    <p class="modal-switch">Get EmailJS keys at <a href="https://www.emailjs.com/" target="_blank">EmailJS.com</a></p>
   </form>
 </div>
 
@@ -570,19 +556,12 @@
     const publicKey = document.getElementById('settings-public-key').value.trim();
     const serviceId = document.getElementById('settings-service-id').value.trim();
     const templateId = document.getElementById('settings-template-id').value.trim();
-    const googleId = document.getElementById('settings-google-id').value.trim();
-
-    if (!publicKey || !serviceId || !templateId || !googleId) {
-      showToast('Please fill all fields', 'error');
-      return;
-    }
 
     localStorage.setItem('emailjs_public_key', publicKey);
     localStorage.setItem(EMAILJS_KEY, JSON.stringify({ publicKey, serviceId, templateId }));
-    localStorage.setItem('google_client_id', googleId);
     emailjs.init(publicKey);
     closeModal();
-    showToast('Settings saved! You can now sign in with Google.', 'success');
+    showToast('Settings saved successfully!', 'success');
   });
 
   function getSession() {
@@ -692,56 +671,8 @@
     document.getElementById('settings-public-key').value = localStorage.getItem('emailjs_public_key') || config.publicKey || '';
     document.getElementById('settings-service-id').value = config.serviceId || '';
     document.getElementById('settings-template-id').value = config.templateId || '';
-    document.getElementById('settings-google-id').value = localStorage.getItem('google_client_id') || '';
     openModal('settings');
   }
-
-  function googleSignIn() {
-    const clientId = localStorage.getItem('google_client_id');
-    if (!clientId) {
-      showModalAlert('Google Sign-In Not Configured',
-        'Go to <strong>Settings</strong> in your profile menu and add your Google Client ID.<br><br>' +
-        '<a href="https://console.cloud.google.com/apis/credentials" target="_blank" style="color:#00bfff;">Get Client ID from Google Cloud Console →</a>');
-      return;
-    }
-    if (typeof google === 'undefined' || !google.accounts) {
-      showToast('Loading Google Sign-In...', 'info');
-      const s = document.createElement('script');
-      s.src = 'https://accounts.google.com/gsi/client';
-      s.onload = () => showGoogleOneTap(clientId);
-      document.head.appendChild(s);
-      return;
-    }
-    showGoogleOneTap(clientId);
-  }
-
-  function showGoogleOneTap(clientId) {
-    const overlay = document.createElement('div');
-    overlay.id = 'gsi-overlay';
-    overlay.innerHTML = '<div id="gsi-container"></div>';
-    document.body.appendChild(overlay);
-    google.accounts.id.initialize({ client_id: clientId, callback: handleGoogleCredential });
-    google.accounts.id.renderButton(document.getElementById('gsi-container'), {
-      type: 'standard', theme: 'outline', size: 'large', width: 300
-    });
-    google.accounts.id.prompt();
-  }
-
-  function handleGoogleCredential(response) {
-    const payload = JSON.parse(atob(response.credential.split('.')[1]));
-    const user = { id: payload.sub, name: payload.name, email: payload.email, picture: payload.picture };
-    localStorage.setItem('chem_session', JSON.stringify(user));
-    document.getElementById('gsi-overlay')?.remove();
-    closeModal();
-    checkAuth();
-    showToast('Welcome, ' + user.name + '!', 'success');
-  }
-
-  document.addEventListener('click', function(e) {
-    if (e.target.closest('#gsi-overlay')) {
-      document.getElementById('gsi-overlay')?.remove();
-    }
-  });
 
   function closeModal() {
     document.getElementById('modal-overlay').classList.remove('active');
