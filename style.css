@@ -302,6 +302,10 @@ nav ul li a:hover { color: #00bfff; }
   animation: floatMain 4s ease-in-out infinite;
 }
 
+.hero-image-name {
+  display: none;
+}
+
 /* Right Image */
 .right-image {
   position: absolute;
@@ -506,6 +510,14 @@ nav ul li a:hover { color: #00bfff; }
   .hero-quote { border-left: none; padding-left: 0; }
   .features { justify-content: center; }
   .hero-image img { max-width: 260px; }
+  .hero-image-name {
+    display: block;
+    text-align: center;
+    font-size: 32px;
+    font-weight: 800;
+    color: #fff;
+    margin-top: 12px;
+  }
   .right-image { display: none; }
   .courses { padding: 60px 24px; }
   .course-card { min-width: 260px; }
