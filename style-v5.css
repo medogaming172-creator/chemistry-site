@@ -555,7 +555,7 @@ nav ul li a:hover { color: #00bfff; }
   .practical-heading p { font-size: 11px; }
   .practical-image { margin-bottom: 10px; }
   .practical-image img { max-width: 100px; }
-  .practical-grid { grid-template-columns: repeat(2, 1fr); gap: 6px; }
+  .practical-grid { grid-template-columns: 1fr; gap: 6px; }
   .practical-card { padding: 8px; }
   .practical-card h3 { font-size: 11px; margin-bottom: 4px; }
   .practical-card p { font-size: 10px; line-height: 1.4; }
