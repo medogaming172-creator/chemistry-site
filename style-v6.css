@@ -287,6 +287,22 @@ nav ul li a:hover { color: #00bfff; }
 }
 .social-icon.whatsapp:hover { background: #25d366; color: #fff; }
 
+.hero-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 8px;
+}
+.hero-buttons .btn1,
+.hero-buttons .btn2 {
+  text-decoration: none; padding: 10px 28px; border-radius: 30px;
+  font-weight: 600; font-size: 14px; transition: all 0.3s;
+}
+.hero-buttons .btn1 { background: transparent; border: 2px solid #00bfff; color: #00bfff; }
+.hero-buttons .btn1:hover { background: #00bfff; color: #0a0f1e; }
+.hero-buttons .btn2 { background: #00bfff; color: #0a0f1e; border: 2px solid #00bfff; }
+.hero-buttons .btn2:hover { background: transparent; color: #00bfff; }
+
 .hero-image {
   flex: 0 0 auto;
   position: relative;
@@ -523,6 +539,9 @@ nav ul li a:hover { color: #00bfff; }
   .hero-social { gap: 8px; margin-top: 2px; }
   .social-icon { width: 32px; height: 32px; }
   .social-icon svg { width: 18px; height: 18px; }
+  .hero-buttons { gap: 8px; margin-top: 4px; }
+  .hero-buttons .btn1,
+  .hero-buttons .btn2 { padding: 6px 16px; font-size: 12px; }
   .hero-image {
     display: flex;
     align-items: center;
