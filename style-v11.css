@@ -469,7 +469,7 @@ nav ul li a:hover { color: #00bfff; }
   .buttons { gap: 6px; }
   .btn1, .btn2 { padding: 6px 16px; font-size: 12px; }
   .hero { flex-direction: column; text-align: center; padding: 70px 10px 2px; gap: 4px; min-height: 0; }
-  .hero-content { order: 0; gap: 4px; }
+  .hero-content { order: 1; gap: 4px; }
   .badge { margin: 0 auto; font-size: 10px; padding: 4px 12px; letter-spacing: 1px; }
   .hero-sub { font-size: 11px !important; letter-spacing: 1px; }
   .hero-top h2 { display: none; }
@@ -493,6 +493,7 @@ nav ul li a:hover { color: #00bfff; }
     display: flex;
     align-items: center;
     gap: 4px;
+    order: 0;
     -webkit-mask-image: none;
     mask-image: none;
   }
