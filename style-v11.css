@@ -286,7 +286,17 @@ nav ul li a:hover { color: #00bfff; }
   display: none;
 }
 
+.right-image {
+  flex: 0 0 180px;
+  position: relative;
+  order: -2;
+}
 
+.right-image img {
+  width: 100%;
+  filter: drop-shadow(0 15px 40px rgba(0,0,0,0.25));
+  animation: floatMain 4s ease-in-out infinite;
+}
 
 @keyframes floatMain {
   0%, 100% { transform: translateY(0); }
@@ -506,6 +516,7 @@ nav ul li a:hover { color: #00bfff; }
     color: #fff;
     line-height: 1.2;
   }
+  .right-image { display: none; }
   .courses { padding: 16px 12px; }
   .courses-heading { margin: 0 auto 10px; }
   .courses-heading h2 { font-size: 18px; margin-bottom: 6px; }
