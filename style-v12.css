@@ -287,11 +287,11 @@ nav ul li a:hover { color: #00bfff; }
 }
 
 .right-image {
-  flex: 0 0 180px;
-  position: relative;
-  order: 2;
-  align-self: flex-start;
-  margin-top: 30px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 180px;
+  z-index: 5;
 }
 
 .right-image img {
