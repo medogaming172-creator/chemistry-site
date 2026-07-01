@@ -266,13 +266,7 @@ nav ul li a:hover { color: #00bfff; }
 }
 .social-icon.whatsapp:hover { background: #25d366; color: #fff; }
 
-.hero-image {
-  flex: 0 0 auto;
-  position: relative;
-  margin-right: -60px;
-  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0));
-  mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0));
-}
+.hero-image { display: none; }
 
 .hero-image img {
   max-width: 480px;
@@ -285,17 +279,11 @@ nav ul li a:hover { color: #00bfff; }
   display: none;
 }
 
-.hero-image { display: none; }
-
 .right-image {
-  position: absolute;
-  right: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 65%;
-  max-width: 950px;
-  z-index: 1;
-  pointer-events: none;
+  flex: 0 0 45%;
+  max-width: 700px;
+  margin-left: auto;
+  position: relative;
 }
 
 .right-image img {
@@ -381,17 +369,7 @@ nav ul li a:hover { color: #00bfff; }
   75% { transform: translateY(10px) rotate(-2deg); opacity: 0.28; }
 }
 
-.right-icons {
-  position: absolute;
-  right: 30px;
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-  z-index: 3;
-  pointer-events: none;
-}
+.right-icons { display: none; }
 
 .right-icon-item {
   display: flex;
@@ -563,8 +541,6 @@ nav ul li a:hover { color: #00bfff; }
     line-height: 1.2;
   }
   .right-image { display: none; }
-  .right-icons { display: none; }
-  .hero-image { display: flex; align-items: center; gap: 4px; -webkit-mask-image: none; mask-image: none; }
   .courses { padding: 16px 12px; }
   .courses-heading { margin: 0 auto 10px; }
   .courses-heading h2 { font-size: 18px; margin-bottom: 6px; }
