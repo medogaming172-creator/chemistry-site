@@ -501,6 +501,9 @@ nav ul li a:hover { color: #00bfff; }
   .contact-phone { display: none; }
   .buttons { gap: 6px; }
   .btn1, .btn2 { padding: 6px 16px; font-size: 12px; }
+  .header-social { gap: 4px; }
+  .contact-whatsapp, .contact-facebook { width: 28px; height: 28px; }
+  .contact-whatsapp i, .contact-facebook i { font-size: 12px; }
   .hero { flex-direction: column; text-align: center; padding: 65px 10px 4px; gap: 4px; }
   .hero-content { order: 0; gap: 4px; }
   .badge { margin: 0 auto; font-size: 10px; padding: 4px 12px; letter-spacing: 1px; }
