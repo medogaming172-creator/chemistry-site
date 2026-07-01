@@ -146,6 +146,7 @@ nav ul li a:hover { color: #00bfff; }
   position: relative;
   z-index: 2;
   font-family: 'Poppins', sans-serif;
+  order: -1;
 }
 
 .hero-content * {
@@ -499,6 +500,7 @@ nav ul li a:hover { color: #00bfff; }
   nav ul { display: none; }
   .contact-phone { display: none; }
   .hero { flex-direction: column; text-align: center; padding: 120px 24px 60px; gap: 40px; }
+  .hero-content { order: 0; }
   .badge { margin: 0 auto; }
   .hero-top h2 { font-size: 40px; }
   .hero-quote { border-left: none; padding-left: 0; }
