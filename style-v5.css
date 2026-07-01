@@ -541,14 +541,19 @@ nav ul li a:hover { color: #00bfff; }
   .courses-heading { margin: 0 auto 10px; }
   .courses-heading h2 { font-size: 18px; margin-bottom: 6px; }
   .courses-heading p { font-size: 11px; }
-  .course-card { min-width: 100%; padding: 14px; }
-  .course-header h3 { font-size: 15px; }
-  .course-body ul li { font-size: 11px; padding: 4px 0; }
-  .course-payment { margin-bottom: 10px; }
-  .payment-option { padding: 8px; }
-  .payment-type { font-size: 11px; }
-  .course-btn { padding: 10px; font-size: 12px; }
-  .payment-options { flex-direction: column; gap: 4px; }
+  .courses-container { gap: 6px; }
+  .course-card { min-width: 0; flex: 1 1 45%; padding: 8px; }
+  .course-header h3 { font-size: 12px; }
+  .course-level { font-size: 10px; margin-bottom: 6px; }
+  .course-body ul { margin-bottom: 6px; }
+  .course-body ul li { font-size: 9px; padding: 2px 0; }
+  .course-payment { margin-bottom: 6px; }
+  .payment-label { font-size: 9px; margin-bottom: 4px; }
+  .payment-option { padding: 4px; }
+  .payment-type { font-size: 9px; }
+  .payment-note { font-size: 8px; }
+  .course-btn { padding: 6px; font-size: 10px; }
+  .payment-options { flex-direction: column; gap: 2px; }
   .practical { padding: 12px 12px; }
   .practical-heading { margin: 0 auto 10px; }
   .practical-heading h2 { font-size: 18px; }
