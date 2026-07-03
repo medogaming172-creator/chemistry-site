@@ -291,6 +291,25 @@ nav ul li a:hover { color: #00bfff; }
   50% { transform: translateY(-15px); }
 }
 
+.solutions-image {
+  position: fixed;
+  top: 380px;
+  right: 300px;
+  width: 850px;
+  z-index: 9999;
+}
+
+.solutions-image img {
+  width: 100%;
+  border-radius: 16px;
+  filter: drop-shadow(0 10px 30px rgba(0,191,255,0.15));
+  animation: floatMain 4s ease-in-out infinite;
+}
+
+@media (max-width: 992px) {
+  .solutions-image { display: none !important; }
+}
+
 
 
 
