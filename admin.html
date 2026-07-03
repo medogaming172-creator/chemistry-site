@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard | IGCSE Chemistry</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<link rel="stylesheet" href="style-v12.css">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #0a0f1e;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+ /* LOGIN */
+.login-screen {
+  position: fixed; inset: 0; z-index: 9999;
+  display: flex; align-items: center; justify-content: center;
+  background: #0a0f1e;
+  transition: opacity 0.4s, visibility 0.4s;
+}
+.login-screen.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+
+.login-box {
+  background: #111827;
+  border: 1px solid rgba(0,191,255,0.1);
+  border-radius: 24px;
+  padding: 44px 40px;
+  width: 90%;
+  max-width: 420px;
+  box-shadow: 0 25px 80px rgba(0,0,0,0.6);
+}
+.login-box .modal-icon {
+  width: 56px; height: 56px; margin: 0 auto 16px;
+  background: rgba(0,191,255,0.1); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+}
+.login-box .modal-icon i { font-size: 24px; color: #00bfff; }
+.login-box h3 { font-size: 24px; font-weight: 700; text-align: center; margin-bottom: 4px; }
+.login-box p { font-size: 14px; color: #777; text-align: center; margin-bottom: 24px; }
+.login-box .input-group { margin-bottom: 16px; }
+.login-box label { font-size: 12px; font-weight: 600; color: #aaa; margin-bottom: 6px; display: block; }
+.login-box label i { margin-right: 5px; color: #00bfff; }
+.login-box input {
+  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px; padding: 13px 16px; color: #fff; font-size: 14px;
+  font-family: 'Poppins', sans-serif; outline: none; transition: all 0.3s; width: 100%;
+}
+.login-box input:focus { border-color: #00bfff; background: rgba(0,191,255,0.05); }
+.login-box input::placeholder { color: #444; }
+.login-error {
+  font-size: 12px; color: #ff4444; text-align: center; min-height: 20px; margin-bottom: 8px;
+}
+.login-box .modal-btn {
+  width: 100%; background: #00bfff; color: #0a0f1e; border: none; border-radius: 30px;
+  padding: 14px; font-size: 15px; font-weight: 700; cursor: pointer;
+  font-family: 'Poppins', sans-serif; transition: all 0.3s;
+}
+.login-box .modal-btn:hover { background: #33ccff; transform: translateY(-1px); }
+
+ /* LAYOUT */
+.app { display: none; }
+.app.active { display: flex; min-height: 100vh; }
+
+.sidebar {
+  width: 260px; flex-shrink: 0;
+  background: #0d1424;
+  border-right: 1px solid rgba(255,255,255,0.04);
+  padding: 24px 0;
+  display: flex; flex-direction: column;
+}
+.sidebar-logo {
+  display: flex; align-items: center; gap: 10px;
+  padding: 0 20px 24px;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  margin-bottom: 16px;
+}
+.sidebar-logo i { font-size: 22px; color: #00bfff; }
+.sidebar-logo h2 { font-size: 16px; font-weight: 700; }
+
+.nav-item {
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px 20px; color: #888; text-decoration: none;
+  font-size: 14px; font-weight: 500; transition: all 0.3s; cursor: pointer;
+  border-left: 3px solid transparent;
+}
+.nav-item:hover { color: #ccc; background: rgba(255,255,255,0.02); }
+.nav-item.active { color: #00bfff; background: rgba(0,191,255,0.06); border-left-color: #00bfff; }
+.nav-item i { width: 20px; font-size: 16px; }
+.nav-item .badge-count {
+  margin-left: auto; background: #00bfff; color: #0a0f1e;
+  font-size: 11px; font-weight: 700; padding: 2px 10px; border-radius: 20px;
+}
+.sidebar-footer { margin-top: auto; padding: 16px 20px; border-top: 1px solid rgba(255,255,255,0.04); }
+.sidebar-footer .nav-item { padding: 10px 0; }
+.sidebar-footer .nav-item.danger { color: #ff6b6b; }
+
+.main {
+  flex: 1; padding: 28px 32px; overflow-y: auto; max-height: 100vh;
+}
+
+.main-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 28px;
+}
+.main-header h1 { font-size: 24px; font-weight: 700; }
+.main-header .date {
+  font-size: 13px; color: #888;
+  display: flex; align-items: center; gap: 6px;
+}
+.main-header .date i { color: #00bfff; }
+
+.stats-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 28px;
+}
+
+.stat-card {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 16px; padding: 20px;
+  transition: all 0.3s;
+}
+.stat-card:hover { border-color: rgba(0,191,255,0.15); transform: translateY(-2px); }
+.stat-card .stat-icon {
+  width: 40px; height: 40px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 12px; font-size: 18px;
+}
+.stat-card .stat-icon.blue { background: rgba(0,191,255,0.1); color: #00bfff; }
+.stat-card .stat-icon.green { background: rgba(37,211,102,0.1); color: #25d366; }
+.stat-card .stat-icon.purple { background: rgba(150,100,255,0.1); color: #9664ff; }
+.stat-card .stat-icon.orange { background: rgba(255,159,0,0.1); color: #ff9f00; }
+.stat-card .stat-label { font-size: 12px; color: #888; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 1px; }
+.stat-card .stat-number { font-size: 28px; font-weight: 800; color: #fff; }
+.stat-card .stat-sub { font-size: 12px; color: #555; margin-top: 2px; }
+
+.section-title {
+  font-size: 18px; font-weight: 700; margin-bottom: 16px; display: flex; align-items: center; gap: 8px;
+}
+.section-title i { color: #00bfff; }
+
+.students-section {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 16px; padding: 24px; margin-bottom: 28px;
+}
+
+.add-btn {
+  background: #00bfff; color: #0a0f1e; border: none; border-radius: 30px;
+  padding: 10px 22px; font-size: 13px; font-weight: 700; cursor: pointer;
+  font-family: 'Poppins', sans-serif; transition: all 0.3s;
+  display: flex; align-items: center; gap: 6px;
+}
+.add-btn:hover { background: #33ccff; }
+
+.students-header {
+  display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;
+}
+.students-header h3 { font-size: 16px; font-weight: 600; }
+
+.filters {
+  display: flex; gap: 10px; align-items: center;
+}
+.filters select {
+  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px; padding: 8px 12px; color: #ccc; font-size: 12px;
+  font-family: 'Poppins', sans-serif; outline: none; cursor: pointer;
+}
+.filters select:focus { border-color: #00bfff; }
+.filters select option { background: #111827; color: #fff; }
+
+table {
+  width: 100%; border-collapse: collapse;
+}
+table th {
+  text-align: left; font-size: 11px; font-weight: 600; color: #666;
+  text-transform: uppercase; letter-spacing: 1px;
+  padding: 10px 12px; border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+table td {
+  padding: 10px 12px; font-size: 13px; color: #ccc;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+}
+table tr:hover td { background: rgba(255,255,255,0.02); }
+
+.badge-course {
+  font-size: 11px; font-weight: 600; padding: 3px 12px; border-radius: 20px;
+}
+.badge-course.olevel { background: rgba(0,191,255,0.1); color: #00bfff; }
+.badge-course.alevel { background: rgba(150,100,255,0.1); color: #9664ff; }
+
+.badge-payment {
+  font-size: 11px; font-weight: 600; padding: 3px 12px; border-radius: 20px;
+}
+.badge-payment.session { background: rgba(255,159,0,0.1); color: #ff9f00; }
+.badge-payment.upfront { background: rgba(37,211,102,0.1); color: #25d366; }
+
+.action-btn {
+  background: none; border: none; cursor: pointer; font-size: 14px;
+  padding: 4px 8px; border-radius: 6px; transition: all 0.2s;
+}
+.action-btn.edit { color: #00bfff; }
+.action-btn.edit:hover { background: rgba(0,191,255,0.1); }
+.action-btn.delete { color: #ff6b6b; }
+.action-btn.delete:hover { background: rgba(255,107,107,0.1); }
+
+/* MODAL */
+.modal-overlay {
+  display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7);
+  z-index: 999; backdrop-filter: blur(6px);
+}
+.modal-overlay.active { display: block; }
+.modal {
+  display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%) scale(0.95);
+  background: #111827; padding: 32px; border-radius: 20px; border: 1px solid rgba(0,191,255,0.1);
+  width: 90%; max-width: 500px; z-index: 1000; box-shadow: 0 25px 80px rgba(0,0,0,0.6);
+  max-height: 90vh; overflow-y: auto;
+}
+.modal.active { display: block; animation: modalIn 0.2s ease forwards; }
+@keyframes modalIn { to { transform: translate(-50%,-50%) scale(1); } }
+.modal-close {
+  position: absolute; top: 14px; right: 18px; font-size: 26px; color: #555;
+  cursor: pointer; transition: color 0.3s; line-height: 1;
+}
+.modal-close:hover { color: #fff; }
+.modal-header { text-align: center; margin-bottom: 24px; }
+.modal-header h3 { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
+.modal-header p { font-size: 13px; color: #777; }
+.modal form { display: flex; flex-direction: column; gap: 14px; }
+.modal .form-row-inline { display: flex; gap: 12px; }
+.modal .form-row-inline .input-group { flex: 1; }
+.modal .input-group label {
+  font-size: 12px; font-weight: 600; color: #aaa; margin-bottom: 5px; display: block;
+}
+.modal .input-group label i { margin-right: 5px; color: #00bfff; }
+.modal input, .modal select {
+  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px; padding: 11px 14px; color: #fff; font-size: 13px;
+  font-family: 'Poppins', sans-serif; outline: none; transition: all 0.3s; width: 100%;
+}
+.modal select option { background: #111827; color: #fff; }
+.modal input:focus, .modal select:focus { border-color: #00bfff; background: rgba(0,191,255,0.05); }
+.modal input::placeholder { color: #444; }
+.modal-btn.small { padding: 11px; font-size: 14px; }
+
+/* REPORT SECTION */
+.report-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 28px;
+}
+.report-card {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 16px; padding: 20px;
+}
+.report-card h4 { font-size: 14px; font-weight: 600; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+.report-card h4 i { color: #00bfff; }
+.report-stat { margin-bottom: 12px; }
+.report-stat-header { display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 4px; }
+.report-stat-header span:last-child { color: #00bfff; font-weight: 600; }
+.report-bar {
+  height: 6px; background: rgba(255,255,255,0.04); border-radius: 4px; overflow: hidden;
+}
+.report-bar-fill {
+  height: 100%; border-radius: 4px; transition: width 0.6s;
+}
+.report-bar-fill.blue { background: #00bfff; }
+.report-bar-fill.green { background: #25d366; }
+.report-bar-fill.purple { background: #9664ff; }
+.report-bar-fill.orange { background: #ff9f00; }
+
+.tab-selector {
+  display: flex; gap: 8px; margin-bottom: 16px;
+}
+.tab-btn {
+  background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 20px; padding: 6px 18px; color: #888; font-size: 12px;
+  font-weight: 600; cursor: pointer; font-family: 'Poppins', sans-serif;
+  transition: all 0.3s;
+}
+.tab-btn.active { background: #00bfff; color: #0a0f1e; border-color: #00bfff; }
+.tab-btn:hover:not(.active) { border-color: rgba(0,191,255,0.3); }
+
+.empty-state {
+  text-align: center; padding: 40px 20px; color: #555;
+}
+.empty-state i { font-size: 40px; margin-bottom: 12px; color: #333; }
+.empty-state p { font-size: 14px; }
+
+/* Responsive */
+@media (max-width: 992px) {
+  .sidebar { width: 60px; padding: 16px 0; }
+  .sidebar-logo { padding: 0 12px 16px; justify-content: center; }
+  .sidebar-logo h2 { display: none; }
+  .nav-item { padding: 12px; justify-content: center; }
+  .nav-item span { display: none; }
+  .nav-item .badge-count { display: none; }
+  .nav-item i { margin: 0; }
+  .sidebar-footer .nav-item { justify-content: center; }
+  .sidebar-footer .nav-item span { display: none; }
+  .main { padding: 20px 16px; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .report-grid { grid-template-columns: 1fr; }
+  .modal .form-row-inline { flex-direction: column; gap: 0; }
+  .filters { flex-wrap: wrap; }
+}
+
+@media (max-width: 576px) {
+  .stats-grid { grid-template-columns: 1fr; }
+  .students-header { flex-direction: column; gap: 10px; align-items: flex-start; }
+  table { font-size: 12px; }
+  table th, table td { padding: 8px 6px; }
+}
+</style>
+</head>
+<body>
+
+<div class="login-screen" id="loginScreen">
+  <div class="login-box">
+    <div class="modal-icon"><i class="fa-solid fa-shield-halved"></i></div>
+    <h3>Admin Login</h3>
+    <p>IGCSE Chemistry • Dr Heba Elgindy</p>
+    <div class="input-group">
+      <label><i class="fa-solid fa-user"></i> Username</label>
+      <input type="text" id="adminUser" placeholder="Enter username" autocomplete="off">
+    </div>
+    <div class="input-group">
+      <label><i class="fa-solid fa-lock"></i> Password</label>
+      <input type="password" id="adminPass" placeholder="Enter password" onkeydown="if(event.key==='Enter') adminLogin()">
+    </div>
+    <div class="login-error" id="loginError"></div>
+    <button class="modal-btn" onclick="adminLogin()">Sign In</button>
+  </div>
+</div>
+
+<div class="app" id="app">
+  <div class="sidebar">
+    <div class="sidebar-logo">
+      <i class="fa-solid fa-flask"></i>
+      <h2>Admin Panel</h2>
+    </div>
+    <div class="nav-item active" onclick="showSection('dashboard')" id="nav-dashboard">
+      <i class="fa-solid fa-chart-pie"></i> <span>Dashboard</span>
+    </div>
+    <div class="nav-item" onclick="showSection('students')" id="nav-students">
+      <i class="fa-solid fa-users"></i> <span>Students</span>
+      <span class="badge-count" id="studentCount">0</span>
+    </div>
+    <div class="nav-item" onclick="showSection('reports')" id="nav-reports">
+      <i class="fa-solid fa-calendar"></i> <span>Reports</span>
+    </div>
+    <div class="sidebar-footer">
+      <div class="nav-item" onclick="showSection('settings')" id="nav-settings">
+        <i class="fa-solid fa-gear"></i> <span>Settings</span>
+      </div>
+      <div class="nav-item danger" onclick="adminLogout()">
+        <i class="fa-solid fa-right-from-bracket"></i> <span>Sign Out</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="main">
+    <!-- DASHBOARD -->
+    <div id="section-dashboard">
+      <div class="main-header">
+        <h1>Dashboard</h1>
+        <div class="date"><i class="fa-regular fa-calendar"></i> <span id="currentDate"></span></div>
+      </div>
+      <div class="stats-grid" id="statsGrid">
+        <div class="stat-card">
+          <div class="stat-icon blue"><i class="fa-solid fa-user-graduate"></i></div>
+          <div class="stat-label">Total Students</div>
+          <div class="stat-number" id="totalStudents">0</div>
+          <div class="stat-sub">All time enrollment</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon green"><i class="fa-solid fa-book-open"></i></div>
+          <div class="stat-label">O Level</div>
+          <div class="stat-number" id="totalOlevel">0</div>
+          <div class="stat-sub">Cambridge 0620 / Edexcel 4CH1</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon purple"><i class="fa-solid fa-flask"></i></div>
+          <div class="stat-label">A Level</div>
+          <div class="stat-number" id="totalAlevel">0</div>
+          <div class="stat-sub">Cambridge 9701 / Edexcel 9CH0</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon orange"><i class="fa-solid fa-credit-card"></i></div>
+          <div class="stat-label">Upfront Payment</div>
+          <div class="stat-number" id="totalUpfront">0</div>
+          <div class="stat-sub">One-time payment</div>
+        </div>
+      </div>
+
+      <div class="report-grid">
+        <div class="report-card">
+          <h4><i class="fa-solid fa-calendar-week"></i> This Month</h4>
+          <div class="report-stat">
+            <div class="report-stat-header"><span>New Students</span> <span id="monthNew">0</span></div>
+          </div>
+          <div class="report-stat">
+            <div class="report-stat-header"><span>O Level</span> <span id="monthOlevel">0</span></div>
+          </div>
+          <div class="report-stat">
+            <div class="report-stat-header"><span>A Level</span> <span id="monthAlevel">0</span></div>
+          </div>
+        </div>
+        <div class="report-card">
+          <h4><i class="fa-solid fa-calendar-days"></i> This Year</h4>
+          <div class="report-stat">
+            <div class="report-stat-header"><span>New Students</span> <span id="yearNew">0</span></div>
+          </div>
+          <div class="report-stat">
+            <div class="report-stat-header"><span>O Level</span> <span id="yearOlevel">0</span></div>
+          </div>
+          <div class="report-stat">
+            <div class="report-stat-header"><span>A Level</span> <span id="yearAlevel">0</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="report-grid">
+        <div class="report-card">
+          <h4><i class="fa-solid fa-chart-bar"></i> Course Distribution</h4>
+          <div class="report-stat">
+            <div class="report-stat-header"><span>O Level</span> <span id="distOlevel">0%</span></div>
+            <div class="report-bar"><div class="report-bar-fill blue" id="distOlevelBar" style="width:0%"></div></div>
+          </div>
+          <div class="report-stat">
+            <div class="report-stat-header"><span>A Level</span> <span id="distAlevel">0%</span></div>
+            <div class="report-bar"><div class="report-bar-fill purple" id="distAlevelBar" style="width:0%"></div></div>
+          </div>
+        </div>
+        <div class="report-card">
+          <h4><i class="fa-solid fa-credit-card"></i> Payment Methods</h4>
+          <div class="report-stat">
+            <div class="report-stat-header"><span>Per Session</span> <span id="paySession">0%</span></div>
+            <div class="report-bar"><div class="report-bar-fill orange" id="paySessionBar" style="width:0%"></div></div>
+          </div>
+          <div class="report-stat">
+            <div class="report-stat-header"><span>Upfront</span> <span id="payUpfront">0%</span></div>
+            <div class="report-bar"><div class="report-bar-fill green" id="payUpfrontBar" style="width:0%"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STUDENTS -->
+    <div id="section-students" style="display:none">
+      <div class="main-header">
+        <h1>Students</h1>
+        <div class="date"><i class="fa-regular fa-calendar"></i> <span id="currentDate2"></span></div>
+      </div>
+      <div class="students-section">
+        <div class="students-header">
+          <h3><i class="fa-solid fa-users" style="color:#00bfff;margin-right:8px;"></i>All Students</h3>
+          <div style="display:flex;gap:10px;align-items:center;">
+            <div class="filters">
+              <select id="filterCourse" onchange="renderStudents()">
+                <option value="all">All Courses</option>
+                <option value="O Level">O Level</option>
+                <option value="A Level">A Level</option>
+              </select>
+              <select id="filterPayment" onchange="renderStudents()">
+                <option value="all">All Payments</option>
+                <option value="Per Session">Per Session</option>
+                <option value="Upfront">Upfront</option>
+              </select>
+            </div>
+            <button class="add-btn" onclick="openStudentModal()"><i class="fa-solid fa-plus"></i> Add Student</button>
+          </div>
+        </div>
+        <div id="studentsTableWrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Course</th>
+                <th>Payment</th>
+                <th>Enrolled</th>
+                <th style="text-align:right;">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="studentsBody"></tbody>
+          </table>
+        </div>
+        <div class="empty-state" id="emptyState">
+          <i class="fa-solid fa-users-slash"></i>
+          <p>No students yet. Click "Add Student" to begin.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- REPORTS -->
+    <div id="section-reports" style="display:none">
+      <div class="main-header">
+        <h1>Reports</h1>
+        <div class="date"><i class="fa-regular fa-calendar"></i> <span id="currentDate3"></span></div>
+      </div>
+      <div class="tab-selector">
+        <button class="tab-btn active" onclick="switchReportMonth(event, 'current')">This Month</button>
+        <button class="tab-btn" onclick="switchReportMonth(event, 'prev')">Last Month</button>
+        <button class="tab-btn" onclick="switchReportMonth(event, 'year')">This Year</button>
+      </div>
+      <div class="report-grid" id="detailedReports">
+        <div class="report-card" style="grid-column:1/-1;">
+          <h4><i class="fa-solid fa-table-list"></i> Monthly Breakdown</h4>
+          <div id="monthlyBreakdown">
+            <div class="report-stat">
+              <div class="report-stat-header"><span>Total Students This Period</span> <span id="periodTotal">0</span></div>
+            </div>
+            <div class="report-stat">
+              <div class="report-stat-header"><span>O Level Enrollments</span> <span id="periodOlevel">0</span></div>
+              <div class="report-bar"><div class="report-bar-fill blue" id="periodOlevelBar" style="width:0%"></div></div>
+            </div>
+            <div class="report-stat">
+              <div class="report-stat-header"><span>A Level Enrollments</span> <span id="periodAlevel">0</span></div>
+              <div class="report-bar"><div class="report-bar-fill purple" id="periodAlevelBar" style="width:0%"></div></div>
+            </div>
+            <div class="report-stat">
+              <div class="report-stat-header"><span>Per Session</span> <span id="periodSession">0</span></div>
+              <div class="report-bar"><div class="report-bar-fill orange" id="periodSessionBar" style="width:0%"></div></div>
+            </div>
+            <div class="report-stat">
+              <div class="report-stat-header"><span>Upfront</span> <span id="periodUpfront">0</span></div>
+              <div class="report-bar"><div class="report-bar-fill green" id="periodUpfrontBar" style="width:0%"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="students-section">
+        <h3 style="margin-bottom:12px;"><i class="fa-solid fa-clock-rotate-left" style="color:#00bfff;margin-right:8px;"></i>Recent Enrollments</h3>
+        <table>
+          <thead><tr><th>Name</th><th>Course</th><th>Payment</th><th>Date</th></tr></thead>
+          <tbody id="recentBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- SETTINGS -->
+    <div id="section-settings" style="display:none">
+      <div class="main-header">
+        <h1>Settings</h1>
+      </div>
+      <div class="students-section">
+        <h3 style="margin-bottom:16px;"><i class="fa-solid fa-database" style="color:#00bfff;margin-right:8px;"></i>Data Management</h3>
+        <p style="color:#888;font-size:14px;margin-bottom:16px;">Export or reset all student data.</p>
+        <div style="display:flex;gap:12px;">
+          <button class="add-btn" onclick="exportData()" style="background:#25d366;"><i class="fa-solid fa-download"></i> Export CSV</button>
+          <button class="add-btn" onclick="if(confirm('Delete ALL student data? This cannot be undone.')){resetData()}" style="background:#ff4444;"><i class="fa-solid fa-trash"></i> Reset All Data</button>
+        </div>
+      </div>
+      <div class="students-section">
+        <h3 style="margin-bottom:16px;"><i class="fa-solid fa-lock" style="color:#00bfff;margin-right:8px;"></i>Change Password</h3>
+        <div style="max-width:350px;">
+          <div class="input-group" style="margin-bottom:10px;">
+            <label>Current Password</label>
+            <input type="password" id="currentPass" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:11px 14px;color:#fff;font-size:13px;font-family:'Poppins',sans-serif;outline:none;width:100%;">
+          </div>
+          <div class="input-group" style="margin-bottom:10px;">
+            <label>New Password</label>
+            <input type="password" id="newPass" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:11px 14px;color:#fff;font-size:13px;font-family:'Poppins',sans-serif;outline:none;width:100%;">
+          </div>
+          <button class="add-btn" onclick="changePassword()"><i class="fa-solid fa-save"></i> Update Password</button>
+          <span id="passMsg" style="font-size:12px;margin-left:10px;"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- STUDENT MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeStudentModal()"></div>
+<div class="modal" id="studentModal">
+  <span class="modal-close" onclick="closeStudentModal()">&times;</span>
+  <div class="modal-header">
+    <div class="modal-icon" style="width:48px;height:48px;margin:0 auto 12px;background:rgba(0,191,255,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;">
+      <i class="fa-solid fa-user-graduate" style="font-size:20px;color:#00bfff;"></i>
+    </div>
+    <h3 id="modalTitle">Add Student</h3>
+    <p>Fill in the student details below</p>
+  </div>
+  <form id="studentForm" onsubmit="saveStudent(event)">
+    <input type="hidden" id="editId">
+    <div class="form-row-inline">
+      <div class="input-group">
+        <label><i class="fa-solid fa-user"></i> Full Name</label>
+        <input type="text" id="sName" placeholder="Student name" required>
+      </div>
+      <div class="input-group">
+        <label><i class="fa-solid fa-envelope"></i> Email</label>
+        <input type="email" id="sEmail" placeholder="student@email.com">
+      </div>
+    </div>
+    <div class="form-row-inline">
+      <div class="input-group">
+        <label><i class="fa-solid fa-phone"></i> Phone</label>
+        <input type="text" id="sPhone" placeholder="Phone number">
+      </div>
+      <div class="input-group">
+        <label><i class="fa-solid fa-layer-group"></i> Course</label>
+        <select id="sCourse">
+          <option value="O Level">O Level</option>
+          <option value="A Level">A Level</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-row-inline">
+      <div class="input-group">
+        <label><i class="fa-solid fa-credit-card"></i> Payment Method</label>
+        <select id="sPayment">
+          <option value="Per Session">Per Session</option>
+          <option value="Upfront">Upfront</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <label><i class="fa-regular fa-calendar"></i> Enroll Date</label>
+        <input type="date" id="sDate" required>
+      </div>
+    </div>
+    <button type="submit" class="modal-btn" style="margin-top:4px;">Save Student</button>
+  </form>
+</div>
+
+<script>
+const ADMIN_USER = 'drheba';
+let ADMIN_PASS = localStorage.getItem('admin_pass') || '123456';
+const STUDENTS_KEY = 'admin_students';
+
+function getStudents() {
+  return JSON.parse(localStorage.getItem(STUDENTS_KEY) || '[]');
+}
+
+function saveStudents(data) {
+  localStorage.setItem(STUDENTS_KEY, JSON.stringify(data));
+}
+
+function adminLogin() {
+  const u = document.getElementById('adminUser').value.trim();
+  const p = document.getElementById('adminPass').value.trim();
+  if (u === ADMIN_USER && p === ADMIN_PASS) {
+    document.getElementById('loginScreen').classList.add('hidden');
+    document.getElementById('app').classList.add('active');
+    document.getElementById('loginError').textContent = '';
+    initApp();
+  } else {
+    document.getElementById('loginError').textContent = 'Invalid username or password';
+  }
+}
+
+function adminLogout() {
+  document.getElementById('app').classList.remove('active');
+  document.getElementById('loginScreen').classList.remove('hidden');
+  document.getElementById('adminUser').value = '';
+  document.getElementById('adminPass').value = '';
+}
+
+function showSection(name) {
+  document.querySelectorAll('.main > div').forEach(d => d.style.display = 'none');
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.getElementById('section-' + name).style.display = 'block';
+  document.getElementById('nav-' + name).classList.add('active');
+  if (name === 'dashboard') updateStats();
+  if (name === 'students') renderStudents();
+  if (name === 'reports') updateReports();
+}
+
+function initApp() {
+  const now = new Date();
+  const opts = { weekday:'long', year:'numeric', month:'long', day:'numeric' };
+  document.querySelectorAll('[id^=currentDate]').forEach(el => {
+    el.textContent = now.toLocaleDateString('en-US', opts);
+  });
+  updateStats();
+  renderStudents();
+  updateReports();
+}
+
+function updateStats() {
+  const students = getStudents();
+  const total = students.length;
+  const o = students.filter(s => s.course === 'O Level').length;
+  const a = students.filter(s => s.course === 'A Level').length;
+  const up = students.filter(s => s.payment === 'Upfront').length;
+
+  document.getElementById('totalStudents').textContent = total;
+  document.getElementById('totalOlevel').textContent = o;
+  document.getElementById('totalAlevel').textContent = a;
+  document.getElementById('totalUpfront').textContent = up;
+  document.getElementById('studentCount').textContent = total;
+
+  const now = new Date();
+  const month = now.getMonth();
+  const year = now.getFullYear();
+
+  const monthSt = students.filter(s => {
+    const d = new Date(s.date);
+    return d.getMonth() === month && d.getFullYear() === year;
+  });
+  document.getElementById('monthNew').textContent = monthSt.length;
+  document.getElementById('monthOlevel').textContent = monthSt.filter(s => s.course === 'O Level').length;
+  document.getElementById('monthAlevel').textContent = monthSt.filter(s => s.course === 'A Level').length;
+
+  const yearSt = students.filter(s => new Date(s.date).getFullYear() === year);
+  document.getElementById('yearNew').textContent = yearSt.length;
+  document.getElementById('yearOlevel').textContent = yearSt.filter(s => s.course === 'O Level').length;
+  document.getElementById('yearAlevel').textContent = yearSt.filter(s => s.course === 'A Level').length;
+
+  const distO = total ? Math.round(o/total*100) : 0;
+  const distA = total ? Math.round(a/total*100) : 0;
+  document.getElementById('distOlevel').textContent = distO + '%';
+  document.getElementById('distOlevelBar').style.width = distO + '%';
+  document.getElementById('distAlevel').textContent = distA + '%';
+  document.getElementById('distAlevelBar').style.width = distA + '%';
+
+  const session = total ? Math.round((total-up)/total*100) : 0;
+  const upfrontP = total ? Math.round(up/total*100) : 0;
+  document.getElementById('paySession').textContent = session + '%';
+  document.getElementById('paySessionBar').style.width = session + '%';
+  document.getElementById('payUpfront').textContent = upfrontP + '%';
+  document.getElementById('payUpfrontBar').style.width = upfrontP + '%';
+}
+
+function renderStudents() {
+  const students = getStudents();
+  const courseF = document.getElementById('filterCourse').value;
+  const payF = document.getElementById('filterPayment').value;
+
+  let filtered = students;
+  if (courseF !== 'all') filtered = filtered.filter(s => s.course === courseF);
+  if (payF !== 'all') filtered = filtered.filter(s => s.payment === payF);
+
+  const tbody = document.getElementById('studentsBody');
+  const empty = document.getElementById('emptyState');
+
+  if (filtered.length === 0) {
+    tbody.innerHTML = '';
+    empty.style.display = 'block';
+    document.querySelector('#studentsTableWrap table').style.display = 'none';
+    return;
+  }
+  empty.style.display = 'none';
+  document.querySelector('#studentsTableWrap table').style.display = '';
+
+  tbody.innerHTML = filtered.map(s => `
+    <tr>
+      <td><strong style="color:#fff;">${s.name}</strong></td>
+      <td>${s.email || '-'}</td>
+      <td>${s.phone || '-'}</td>
+      <td><span class="badge-course ${s.course === 'O Level' ? 'olevel' : 'alevel'}">${s.course}</span></td>
+      <td><span class="badge-payment ${s.payment === 'Per Session' ? 'session' : 'upfront'}">${s.payment}</span></td>
+      <td style="font-size:12px;color:#888;">${s.date}</td>
+      <td style="text-align:right;">
+        <button class="action-btn edit" onclick="editStudent('${s.id}')" title="Edit"><i class="fa-solid fa-pen"></i></button>
+        <button class="action-btn delete" onclick="deleteStudent('${s.id}')" title="Delete"><i class="fa-solid fa-trash-can"></i></button>
+      </td>
+    </tr>
+  `).join('');
+}
+
+function openStudentModal(data) {
+  document.getElementById('modalTitle').textContent = data ? 'Edit Student' : 'Add Student';
+  document.getElementById('editId').value = data ? data.id : '';
+  document.getElementById('sName').value = data ? data.name : '';
+  document.getElementById('sEmail').value = data ? (data.email||'') : '';
+  document.getElementById('sPhone').value = data ? (data.phone||'') : '';
+  document.getElementById('sCourse').value = data ? data.course : 'O Level';
+  document.getElementById('sPayment').value = data ? data.payment : 'Per Session';
+  document.getElementById('sDate').value = data ? data.date : new Date().toISOString().split('T')[0];
+  document.getElementById('modalOverlay').classList.add('active');
+  document.getElementById('studentModal').classList.add('active');
+}
+
+function closeStudentModal() {
+  document.getElementById('modalOverlay').classList.remove('active');
+  document.getElementById('studentModal').classList.remove('active');
+}
+
+function saveStudent(e) {
+  e.preventDefault();
+  const students = getStudents();
+  const id = document.getElementById('editId').value;
+  const data = {
+    name: document.getElementById('sName').value.trim(),
+    email: document.getElementById('sEmail').value.trim(),
+    phone: document.getElementById('sPhone').value.trim(),
+    course: document.getElementById('sCourse').value,
+    payment: document.getElementById('sPayment').value,
+    date: document.getElementById('sDate').value
+  };
+  if (!data.name) return;
+
+  if (id) {
+    const idx = students.findIndex(s => s.id === id);
+    if (idx !== -1) { students[idx] = { ...students[idx], ...data }; }
+  } else {
+    data.id = Date.now().toString();
+    students.push(data);
+  }
+  saveStudents(students);
+  closeStudentModal();
+  renderStudents();
+  updateStats();
+  updateReports();
+}
+
+function editStudent(id) {
+  const s = getStudents().find(st => st.id === id);
+  if (s) openStudentModal(s);
+}
+
+function deleteStudent(id) {
+  if (!confirm('Delete this student?')) return;
+  let students = getStudents();
+  students = students.filter(s => s.id !== id);
+  saveStudents(students);
+  renderStudents();
+  updateStats();
+  updateReports();
+}
+
+function updateReports() {
+  const students = getStudents();
+  const now = new Date();
+  const month = now.getMonth();
+  const year = now.getFullYear();
+
+  const periodStudents = students.filter(s => {
+    const d = new Date(s.date);
+    return d.getMonth() === month && d.getFullYear() === year;
+  });
+
+  document.getElementById('periodTotal').textContent = periodStudents.length;
+  const po = periodStudents.filter(s => s.course === 'O Level').length;
+  const pa = periodStudents.filter(s => s.course === 'A Level').length;
+  const ps = periodStudents.filter(s => s.payment === 'Per Session').length;
+  const pu = periodStudents.filter(s => s.payment === 'Upfront').length;
+
+  document.getElementById('periodOlevel').textContent = po;
+  document.getElementById('periodAlevel').textContent = pa;
+  document.getElementById('periodSession').textContent = ps;
+  document.getElementById('periodUpfront').textContent = pu;
+
+  const max1 = Math.max(po, pa, 1);
+  document.getElementById('periodOlevelBar').style.width = (po/max1*100) + '%';
+  document.getElementById('periodAlevelBar').style.width = (pa/max1*100) + '%';
+  const max2 = Math.max(ps, pu, 1);
+  document.getElementById('periodSessionBar').style.width = (ps/max2*100) + '%';
+  document.getElementById('periodUpfrontBar').style.width = (pu/max2*100) + '%';
+
+  // Recent enrollments (last 10)
+  const recent = [...students].sort((a,b) => new Date(b.date) - new Date(a.date)).slice(0, 10);
+  document.getElementById('recentBody').innerHTML = recent.map(s => `
+    <tr>
+      <td style="color:#fff;">${s.name}</td>
+      <td><span class="badge-course ${s.course === 'O Level' ? 'olevel' : 'alevel'}">${s.course}</span></td>
+      <td><span class="badge-payment ${s.payment === 'Per Session' ? 'session' : 'upfront'}">${s.payment}</span></td>
+      <td style="color:#888;">${s.date}</td>
+    </tr>
+  `).join('');
+}
+
+function switchReportMonth(e, period) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  e.target.classList.add('active');
+
+  const students = getStudents();
+  const now = new Date();
+  const year = now.getFullYear();
+  let filtered = [];
+
+  if (period === 'current') {
+    filtered = students.filter(s => {
+      const d = new Date(s.date);
+      return d.getMonth() === now.getMonth() && d.getFullYear() === year;
+    });
+  } else if (period === 'prev') {
+    let m = now.getMonth() - 1;
+    let y = year;
+    if (m < 0) { m = 11; y--; }
+    filtered = students.filter(s => {
+      const d = new Date(s.date);
+      return d.getMonth() === m && d.getFullYear() === y;
+    });
+  } else {
+    filtered = students.filter(s => new Date(s.date).getFullYear() === year);
+  }
+
+  document.getElementById('periodTotal').textContent = filtered.length;
+  const po = filtered.filter(s => s.course === 'O Level').length;
+  const pa = filtered.filter(s => s.course === 'A Level').length;
+  const ps = filtered.filter(s => s.payment === 'Per Session').length;
+  const pu = filtered.filter(s => s.payment === 'Upfront').length;
+
+  document.getElementById('periodOlevel').textContent = po;
+  document.getElementById('periodAlevel').textContent = pa;
+  document.getElementById('periodSession').textContent = ps;
+  document.getElementById('periodUpfront').textContent = pu;
+
+  const max1 = Math.max(po, pa, 1);
+  document.getElementById('periodOlevelBar').style.width = (po/max1*100) + '%';
+  document.getElementById('periodAlevelBar').style.width = (pa/max1*100) + '%';
+  const max2 = Math.max(ps, pu, 1);
+  document.getElementById('periodSessionBar').style.width = (ps/max2*100) + '%';
+  document.getElementById('periodUpfrontBar').style.width = (pu/max2*100) + '%';
+}
+
+function exportData() {
+  const students = getStudents();
+  if (!students.length) { alert('No data to export.'); return; }
+  const headers = ['Name','Email','Phone','Course','Payment','Date'];
+  const rows = students.map(s => [s.name,s.email||'',s.phone||'',s.course,s.payment,s.date]);
+  const csv = [headers.join(','), ...rows.map(r => r.map(v => '"'+v+'"').join(','))].join('\n');
+  const blob = new Blob([csv], {type:'text/csv'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = 'students_export.csv'; a.click();
+  URL.revokeObjectURL(url);
+}
+
+function resetData() {
+  localStorage.removeItem(STUDENTS_KEY);
+  renderStudents();
+  updateStats();
+  updateReports();
+}
+
+function changePassword() {
+  const cur = document.getElementById('currentPass').value.trim();
+  const nw = document.getElementById('newPass').value.trim();
+  const msg = document.getElementById('passMsg');
+  if (cur !== ADMIN_PASS) { msg.style.color = '#ff4444'; msg.textContent = 'Current password wrong'; return; }
+  if (nw.length < 4) { msg.style.color = '#ff4444'; msg.textContent = 'Min 4 characters'; return; }
+  ADMIN_PASS = nw;
+  localStorage.setItem('admin_pass', nw);
+  msg.style.color = '#25d366'; msg.textContent = 'Password updated!';
+  document.getElementById('currentPass').value = '';
+  document.getElementById('newPass').value = '';
+  setTimeout(() => msg.textContent = '', 2000);
+}
+</script>
+
+</body>
+</html>

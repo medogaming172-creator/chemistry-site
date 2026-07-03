@@ -292,10 +292,10 @@ nav ul li a:hover { color: #00bfff; }
 }
 
 .solutions-image {
-  position: fixed;
-  top: 380px;
-  right: 300px;
-  width: 850px;
+  position: absolute;
+  top: 170px;
+  right: -1600px;
+  width: 1000px;
   z-index: 9999;
 }
 
@@ -307,7 +307,19 @@ nav ul li a:hover { color: #00bfff; }
 }
 
 @media (max-width: 992px) {
-  .solutions-image { display: none !important; }
+  .solutions-image {
+    display: block !important;
+    position: static;
+    width: 100%;
+    max-width: 280px;
+    margin: 8px auto 0;
+    z-index: 5;
+  }
+  .solutions-image img {
+    width: 100%;
+    border-radius: 12px;
+    filter: drop-shadow(0 6px 20px rgba(0,191,255,0.12));
+  }
 }
 
 
@@ -436,22 +448,25 @@ nav ul li a:hover { color: #00bfff; }
   .hero-social { gap: 8px; margin-top: 2px; }
   .social-icon { width: 32px; height: 32px; }
   .social-icon svg { width: 18px; height: 18px; }
-  .hero-image {
+   .hero-image {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 4px;
+    gap: 2px;
     order: 0;
     -webkit-mask-image: none;
     mask-image: none;
+    width: 100%;
   }
   .hero-image img { max-width: 200px; }
   .hero-image-name {
     display: block;
-    text-align: left;
+    text-align: center;
     font-size: 28px;
     font-weight: 800;
     color: #fff;
     line-height: 1.2;
+    width: 100%;
   }
 
   .courses { padding: 16px 12px; }
@@ -493,6 +508,7 @@ nav ul li a:hover { color: #00bfff; }
   .hero-top p { font-size: 11px; }
   .hero-image img { max-width: 180px; }
   .hero-image-name { font-size: 26px; }
+  .solutions-image { max-width: 220px; }
   .badge { font-size: 8px; padding: 3px 8px; }
   .features { gap: 2px; }
   .feature { font-size: 9px; padding: 2px 6px; }
